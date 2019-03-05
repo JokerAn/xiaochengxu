@@ -1,0 +1,20 @@
+<!--pages/register/register.wxml-->
+<view class="register">
+  <view class="userNmae">
+    <image src='/images/login/icon_account.png' class='login_man_ico'></image>
+    <input type='text' class='login_input' bindinput='userNameF' placeholder='请输入手机号码' placeholder-class='login_phcolor' />
+  </view>
+  <view class="userPwd">
+    <image src='/images/login/icon_registration.png' class='login_phone_ico'></image>
+
+    <input type='password' class='login_input' bindinput='userPwdF' placeholder='请输入密码' placeholder-class='login_phcolor' />
+  </view>
+  <view class="userPwd">
+    <image src='/images/login/icon_registration.png' class='login_phone_ico'></image>
+
+    <input type='password' class='login_input' bindinput='userPwd2F' placeholder='再次输入密码' placeholder-class='login_phcolor' />
+  </view>
+  <view>
+    <button class="login_btn" bindtap='addUserInfo'>注册</button>
+  </view>
+</view>
