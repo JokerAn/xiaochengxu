@@ -1,7 +1,9 @@
 {
   "pages": [
-    
-    "pages/login/login",
+        "pages/login/login",
+        
+    "pages/mainPage/mainPage",
+      "pages/changePwd/changePwd",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    console.log(options);
   },
 
   /**
@@ -89,8 +89,7 @@ Page({
       util.showAlert('两次密码不一致');
       return
     }
-    let regs = /[a-zA-Z0-9_]{6}/g;
-    if (regs.test(this.data.userPwd)) {
+    if (util.regPwd(this.data.userPwd)) {
 
     } else {
       console.log(regs.test(this.data.userPwd));

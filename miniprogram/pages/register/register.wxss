@@ -16,11 +16,11 @@
 }
 
 .login_input {
-  width: 260rpx;
+  width: 400rpx;
   height: 77rpx;
   border-bottom: 1rpx solid #dfdfdf;
-  padding-left: 90rpx;
-  padding-right: 200rpx;
+  padding-left: 100rpx;
+  padding-right: 50rpx;
 }
 
 .login_btn {

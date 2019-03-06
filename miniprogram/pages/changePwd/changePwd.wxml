@@ -1,0 +1,20 @@
+<!--pages/changePwd/changePwd.wxml-->
+<!--pages/register/register.wxml-->
+<view id="changePwd">
+  <view class="userPwd">
+    <image src='/images/login/icon_registration.png' class='login_phone_ico'></image>
+    <input type='password' class='login_input' bindinput='userPwdOldF' placeholder='请输入旧的密码' placeholder-class='login_phcolor' />
+  </view>
+   <view class="userPwd">
+    <image src='/images/login/icon_registration.png' class='login_phone_ico'></image>
+    <input type='password' class='login_input' bindinput='userPwdNewF' placeholder='请输入新的密码' placeholder-class='login_phcolor' />
+  </view>
+  <view class="userPwd">
+    <image src='/images/login/icon_registration.png' class='login_phone_ico'></image>
+
+    <input type='password' class='login_input' bindinput='userPwdNew2F' placeholder='再次输入新密码' placeholder-class='login_phcolor' />
+  </view>
+  <view>
+    <button class="login_btn" bindtap='chengePwdOk'>确定</button>
+  </view>
+</view>

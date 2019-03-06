@@ -5,13 +5,16 @@
   </view>
   <view>
     <text>密码：</text>
-    <input type='text' bindinput='userNameF'></input>
+    <input type='password' bindinput='userPwdF'></input>
   </view>
   <view class='loginBtnBox'>
-    <button class="login_btn">登录</button>
+    <button class="login_btn" bindtap='login'>登录</button>
   </view>
-  <view>
+  <view class="canotLogin">
     <text>忘记密码</text>
-    <text>注册</text>
+    <navigator url="../register/register" open-type="navigate" >
+      <text>注册</text>
+    </navigator>
+    
   </view>
 </view>

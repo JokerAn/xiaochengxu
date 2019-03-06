@@ -1,0 +1,5 @@
+<!--pages/mainPage/mainPage.wxml-->
+<view id='mainPage'>
+  <button bindtap='changePwd'>修改密码</button> 
+</view>
+

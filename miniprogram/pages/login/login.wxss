@@ -15,15 +15,18 @@
   font-size: 26rpx;
   color: #dfdfdf;
 }
-
+#login>view>text{
+  font-size: 14px;
+}
 #login input {
-  width: 300rpx;
+  width: 400rpx;
   height: 77rpx;
   border-bottom: 1rpx solid #dfdfdf;
   padding-left: 100rpx;
-  padding-right: 100rpx;
+  padding-right: 50rpx;
   display:inline-block;
   vertical-align:bottom;
+  font-size: 14px;
 
 }
 
@@ -41,4 +44,15 @@
 }
 .loginBtnBox{
   margin:50rpx 0 0 0;
+}
+.canotLogin{
+  font-size: 12px;
+  color:blue;
+}
+.canotLogin text{
+  padding:0 10rpx;
+  margin-left:10rpx;
+}
+.canotLogin navigator{
+  display: inline
 }

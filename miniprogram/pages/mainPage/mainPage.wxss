@@ -1,0 +1,9 @@
+/* pages/mainPage/mainPage.wxss */
+#mainPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+
+}
