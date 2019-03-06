@@ -60,7 +60,7 @@ Page({
 
           })
         wx.reLaunch({
-          url: '../mainPage/mainPage?id='+res.data[0]._id
+          url: '../mainPage/mainPage'
         })
       }else{
         util.showAlert('用户名或者密码错误');
