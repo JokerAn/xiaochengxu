@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userid:''
+    userid:'',
+    userid2: ''
   },
 
   /**
@@ -13,11 +14,20 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    this.data.userId=options.id;
+    let userId=wx.getStorageSync('userId');
+    this.setData({
+      userId: userId
+    });
   },
   changePwd(){
     wx.navigateTo({
       url: '../changePwd/changePwd?id=' + this.data.userId
+    })
+  },
+  logout() {
+    wx.clearStorage();
+    wx.navigateTo({
+      url: '../login/login'
     })
   },
   /**

@@ -19,7 +19,7 @@ Page({
     console.log(userId);
     if (userId) {
       wx.reLaunch({
-        url: '../mainPage/mainPage?id=' + userId
+        url: '../mainPage/mainPage'
       });
       return
     }

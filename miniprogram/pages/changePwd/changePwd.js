@@ -18,7 +18,9 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    this.data.userId=options.id;
+    this.setData({
+      userId:options.id
+    });
   },
   userPwdOldF(e){
     this.setData({
@@ -63,7 +65,7 @@ Page({
     });
     //张三_id：XH4fHFsqTi00tooC
     util.linkDataBase('userInfo').where({
-      _id: 'XH4fHFsqTi00tooC',
+      _id: this.data.userId,
       passWord: this.data.userPwdOld
     }).get().then(res=>{
       console.log(res);
@@ -77,8 +79,13 @@ Page({
           success(res) {
             console.log(res.data);
             util.showAlert('更改成功！');
+            wx.navigateTo({
+              url: '../mainPage/mainPage',
+            })
           }
         })
+      }else{
+        util.showAlert('旧密码不正确！');
       }
     })
   

@@ -1,5 +1,6 @@
 <!--pages/mainPage/mainPage.wxml-->
 <view id='mainPage'>
   <button bindtap='changePwd'>修改密码</button> 
+  <button bindtap='logout'>退出登录</button> 
 </view>
 

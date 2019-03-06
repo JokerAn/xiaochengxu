@@ -113,7 +113,16 @@ Page({
             success(res) {
               // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
               console.log(res);
-              util.showAlert('注册成功')
+              util.showAlert('注册成功');
+              wx.setStorage({
+                key: 'userId',
+                data: res._id,
+              });
+              let a = wx.getStorageSync('userId')
+              console.log(a);
+              wx.redirectTo({
+                url: '../login/login',
+              })
             }
           })
         }else{
