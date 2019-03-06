@@ -65,6 +65,7 @@ Page({
       }else{
         util.showAlert('用户名或者密码错误');
       }
+      
     })
   },
 
