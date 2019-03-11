@@ -12,7 +12,18 @@ Page({
     userPwdNew:'',
     userPwdNew2:''
   },
-
+  userPhone: function (e) {
+    let _this = this;
+    this.setData({
+      userPhoneNumber: e.detail.value
+    })
+  },
+  userCode: function (e) {
+    let _this = this;
+    this.setData({
+      userPhpneCode: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -25,17 +36,21 @@ Page({
   userPwdOldF(e){
     this.setData({
       userPwdOld: e.detail.value
-    })
+    });
   },
   userPwdNewF(e) {
+    console.log(e.detail);
     this.setData({
       userPwdNew: e.detail.value
-    })
+    });
+    console.log(this.data.userPwdNew);
   },
   userPwdNew2F(e) {
     this.setData({
       userPwdNew2: e.detail.value
-    })
+    });
+    
+
   },
   chengePwdOk(){
     console.log(this.data);

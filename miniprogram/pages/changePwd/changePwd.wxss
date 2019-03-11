@@ -7,12 +7,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 200rpx 0;
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
 .login_phcolor {
-  font-size: 26rpx;
-  color: #dfdfdf;
+  font-size: 24rpx;
 }
 
 .login_input {
@@ -57,4 +56,4 @@
   height: 45rpx;
   left: 18rpx;
   top: 16rpx;
-}
+} 
