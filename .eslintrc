@@ -7,6 +7,9 @@
   //   //也就是使用prettier认为对的规则
   //   "plugin:prettier/recommended"
   // ],
+  "globals": {
+    "__POWERED_BY_QIANKUN__": false
+  },
   "extends": ["airbnb", "prettier", "plugin:react/recommended"],
   "plugins": [
     "prettier", // eslint 会使用pretter的规则对代码格式化
@@ -57,6 +60,11 @@
     "import/extensions": 0,
     "no-inline-styles": 0,
     // react
+    "vars-on-top": 0,
+    "no-var": 0,
+    "no-use-before-define": 0,
+    "react/function-component-definition": 0,
+    "react/jsx-no-useless-fragment": 0,
     "react/jsx-curly-brace-presence": 0,
     "import/newline-after-import": 0,
     "comma-dangle": 0,

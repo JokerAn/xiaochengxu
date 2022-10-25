@@ -1,20 +1,24 @@
 const CracoLessPlugin = require('craco-less');
-
+const path = require('path');
+console.log(path);
 const { ReactInspectorPlugin } = require('react-dev-inspector/plugins/webpack');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 // const TerserPlugin = require("terser-webpack-plugin");
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WebpackBar = require('webpackbar');
 const { whenDev, whenProd } = require('@craco/craco');
-// const isPro = process.env.NODE_ENV === "production";
+const isPro = process.env.NODE_ENV === 'production';
 const packageName = require('./package.json').name;
+const { name } = require('./package');
 
 module.exports = {
-  output: {
-    library: `${packageName}-[name]`,
-    libraryTarget: 'umd',
-    jsonpFunction: `webpackJsonp_${packageName}`,
-  },
+  // output: {
+  //   library: {
+  //     name: `${packageName}-[name]`,
+  //     type: 'umd',
+  //   },
+  //   jsonpFunction: `webpackJsonp_${packageName}`,
+  // },
   plugins: [
     {
       plugin: CracoLessPlugin,
@@ -37,51 +41,122 @@ module.exports = {
       },
     },
   ],
-  webpack: {
-    // ...whenDev(() => ({
-    //   devTools: "source-map" /*"cheap-module-eval-source-map"*/,
-    // })),
-    plugins: [
-      // webpack构建进度条
-      new WebpackBar({
-        profile: true,
-      }),
-      // 查看包的大小
-      ...whenDev(() => [new BundleAnalyzerPlugin()], []),
-      // 打压缩包
-      ...whenProd(
-        () => [
-          new CompressionWebpackPlugin({
-            filename: '[path].gz[query]',
-            algorithm: 'gzip',
-            test: new RegExp(`\\.(${['js', 'css', 'ts', 'tsx'].join('|')})$`),
-            threshold: 1024,
-            minRatio: 0.8,
-            deleteOriginalAssets: false, // 删除原文件
-          }),
-        ],
-        []
-      ),
-      // 去除生产console
-      ...whenProd(
-        () => [
-          //   new TerserPlugin({
-          //     terserOptions: {
-          //       compress: {
-          //         // drop_console: isPro, //移除console 注意会移除所有的console.*
-          //         drop_debugger: true, //移除debugger
-          //         pure_funcs: ["console.log"], // 移除console.log函数
-          //       },
-          //       // compress: {
-          //       //   // drop_console: isPro, //移除console 注意会移除所有的console.*
-          //       //   drop_debugger: isPro, //移除debugger
-          //       //   pure_funcs: isPro ? ["console.log"] : null, // 移除console.log函数
-          //       // },
-          //     },
-          //   }),
-        ],
-        []
-      ),
-    ],
+  webpack: (config) => {
+    config.publicPath = isPro ? '/' : './';
+    config.output.library = isPro ? `${name}-[name]` : `//localhost:4441`;
+    // config.output.library = 'qiankun-react-ansl';
+    config.output.libraryTarget = 'umd';
+    // config.output.jsonpFunction = `webpackJsonp_${name}`;改为下边这一行
+    config.output.chunkLoadingGlobal = `webpackJsonp_${name}`;
+    config.output.globalObject = 'window';
+    config.plugins = [
+      ...config.plugins,
+      ...[
+        // webpack构建进度条
+        new WebpackBar({
+          profile: true,
+        }),
+        // 查看包的大小
+        ...whenDev(() => [new BundleAnalyzerPlugin()], []),
+        // 打压缩包
+        ...whenProd(
+          () => [
+            new CompressionWebpackPlugin({
+              filename: '[path].gz[query]',
+              algorithm: 'gzip',
+              test: new RegExp(`\\.(${['js', 'css', 'ts', 'tsx'].join('|')})$`),
+              threshold: 1024,
+              minRatio: 0.8,
+              deleteOriginalAssets: false, // 删除原文件
+            }),
+          ],
+          []
+        ),
+        // 去除生产console
+        ...whenProd(
+          () => [
+            //   new TerserPlugin({
+            //     terserOptions: {
+            //       compress: {
+            //         // drop_console: isPro, //移除console 注意会移除所有的console.*
+            //         drop_debugger: true, //移除debugger
+            //         pure_funcs: ["console.log"], // 移除console.log函数
+            //       },
+            //       // compress: {
+            //       //   // drop_console: isPro, //移除console 注意会移除所有的console.*
+            //       //   drop_debugger: isPro, //移除debugger
+            //       //   pure_funcs: isPro ? ["console.log"] : null, // 移除console.log函数
+            //       // },
+            //     },
+            //   }),
+          ],
+          []
+        ),
+      ],
+    ];
+    return config;
   },
+  devServer: (_) => {
+    const config = _;
+    config.headers = {
+      'Access-Control-Allow-Origin': '*',
+    };
+    // config.injectClient = false;
+    config.historyApiFallback = true;
+    config.hot = false;
+    // config.watchContentBase = false;改为下边这一行
+    config.static.watch = false;
+    config.liveReload = false;
+    // console.log(path.resolve);
+    // config.static.directory = isPro ? '/' : path.resolve(__dirname, 'public');
+
+    return config;
+  },
+  // webpack: {
+  //   // ...whenDev(() => ({
+  //   //   devTools: "source-map" /*"cheap-module-eval-source-map"*/,
+  //   // })),
+  //   plugins: [
+  //     // webpack构建进度条
+  //     new WebpackBar({
+  //       profile: true,
+  //     }),
+  //     // 查看包的大小
+  //     ...whenDev(() => [new BundleAnalyzerPlugin()], []),
+  //     // 打压缩包
+  //     ...whenProd(
+  //       () => [
+  //         new CompressionWebpackPlugin({
+  //           filename: '[path].gz[query]',
+  //           algorithm: 'gzip',
+  //           test: new RegExp(`\\.(${['js', 'css', 'ts', 'tsx'].join('|')})$`),
+  //           threshold: 1024,
+  //           minRatio: 0.8,
+  //           deleteOriginalAssets: false, // 删除原文件
+  //         }),
+  //       ],
+  //       []
+  //     ),
+  //     // 去除生产console
+  //     ...whenProd(
+  //       () => [
+  //         //   new TerserPlugin({
+  //         //     terserOptions: {
+  //         //       compress: {
+  //         //         // drop_console: isPro, //移除console 注意会移除所有的console.*
+  //         //         drop_debugger: true, //移除debugger
+  //         //         pure_funcs: ["console.log"], // 移除console.log函数
+  //         //       },
+  //         //       // compress: {
+  //         //       //   // drop_console: isPro, //移除console 注意会移除所有的console.*
+  //         //       //   drop_debugger: isPro, //移除debugger
+  //         //       //   pure_funcs: isPro ? ["console.log"] : null, // 移除console.log函数
+  //         //       // },
+  //         //     },
+  //         //   }),
+  //       ],
+  //       []
+  //     ),
+  //   ],
+  // },
 };
