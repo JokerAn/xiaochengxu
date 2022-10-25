@@ -8,7 +8,8 @@
   //   "plugin:prettier/recommended"
   // ],
   "globals": {
-    "__POWERED_BY_QIANKUN__": false
+    "__POWERED_BY_QIANKUN__": false,
+    "__webpack_public_path__": true
   },
   "extends": ["airbnb", "prettier", "plugin:react/recommended"],
   "plugins": [
@@ -62,6 +63,7 @@
     // react
     "vars-on-top": 0,
     "no-var": 0,
+    "camelcase": 0,
     "no-use-before-define": 0,
     "react/function-component-definition": 0,
     "react/jsx-no-useless-fragment": 0,
