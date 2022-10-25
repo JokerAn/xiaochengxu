@@ -63,12 +63,17 @@ export async function unmount(props: any) {
 export async function update(props: any) {
   console.log('update props', props);
 }
-// 不添加这一段代码就报错
-if (process.env.NODE_ENV === 'development') {
-  window.qiankunLifecycle = {
-    bootstrap,
-    mount,
-    unmount,
-  };
-}
+// 不添加这一段代码就报错-经过反复测试生产环境也需要这段代码
+// if (process.env.NODE_ENV === 'development') {
+//   window.qiankunLifecycle = {
+//     bootstrap,
+//     mount,
+//     unmount,
+//   };
+// }
+window.qiankunLifecycle = {
+  bootstrap,
+  mount,
+  unmount,
+};
 reportWebVitals();
