@@ -1,6 +1,5 @@
 const CracoLessPlugin = require('craco-less');
 const path = require('path');
-console.log(path);
 const { ReactInspectorPlugin } = require('react-dev-inspector/plugins/webpack');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 // const TerserPlugin = require("terser-webpack-plugin");
@@ -8,17 +7,9 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WebpackBar = require('webpackbar');
 const { whenDev, whenProd } = require('@craco/craco');
 const isPro = process.env.NODE_ENV === 'production';
-const packageName = require('./package.json').name;
 const { name } = require('./package');
 
 module.exports = {
-  // output: {
-  //   library: {
-  //     name: `${packageName}-[name]`,
-  //     type: 'umd',
-  //   },
-  //   jsonpFunction: `webpackJsonp_${packageName}`,
-  // },
   plugins: [
     {
       plugin: CracoLessPlugin,
