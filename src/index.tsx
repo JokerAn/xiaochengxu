@@ -5,10 +5,12 @@ import { Inspector, InspectParams } from 'react-dev-inspector';
 import locale from 'antd/lib/locale/zh_CN';
 import { ConfigProvider } from 'antd';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from './store/store';
 const InspectorWrapper = process.env.NODE_ENV === 'development' ? Inspector : React.Fragment;
 
 const c: string = '';
@@ -32,11 +34,11 @@ function render(props: any) {
           document.body.removeChild(ael);
         }}
       >
-        {/* <Provider store={store}> */}
-        <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? '/qiankun-react-ansl' : '/'}>
-          <App />
-        </BrowserRouter>
-        {/* </Provider> */}
+        <Provider store={store}>
+          <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? '/qiankun-react-ansl' : '/'}>
+            <App />
+          </BrowserRouter>
+        </Provider>
       </InspectorWrapper>
     </ConfigProvider>
   );
