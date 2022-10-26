@@ -5,6 +5,16 @@ import { AboutComponent } from './pages/about';
 import { NewsComponent } from './pages/news';
 import { createFromIconfontCN } from '@ant-design/icons';
 import { LayOut } from './pages/layout';
+import { Select } from 'antd';
+console.log(Select);
+export const MySelect = (prop: any) => {
+  const { children, ...props }: any = prop;
+  return (
+    <Select {...props} listItemHeight={32}>
+      {children}
+    </Select>
+  );
+};
 
 export const IconFont = createFromIconfontCN({
   scriptUrl: ['//s3-relay.360buyimg.com/relay/c/iconfont/4/font_3902210pmg4wT54N5y.js'],

@@ -37,6 +37,7 @@ import { useGetUrlParams } from '@src/components/myUses';
 // import { StorageDetails } from '../serviceResourcess/cloudHost/storageDetails';
 // import { ServicesOverview } from '../topNav/servicesOverview';
 import { baseUserInfoAPI, noticeOncallAPI } from '@src/apis/publicApis';
+import { AboutComponent } from '../about';
 // import { ResourcesOccupiedByDepartmentsComponent } from '../resourceUse/resourcesOccupiedByDepartments';
 // import { DomainNameCallVolumeComponent } from '../resourceUse/domainNameCallVolume';
 // import { ResourcesOccupancyTrendComponent } from '../resourceUse/resourcesOccupiedByDepartments/resourcesOccupancyTrend';
@@ -54,6 +55,7 @@ const notLeftRouter: any = {
 };
 const pathAndComponent: any = {
   // '路由单词': 组件,
+  '/about': <AboutComponent />, //首页
   // '/home': <HomeComponent />, //首页
   // '/redis': <RedisComponent />, //服务资源-redis
   // '/mySql': <MysqlComponent />, //服务资源-Mysql

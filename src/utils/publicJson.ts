@@ -18,6 +18,17 @@ let linshi: any = [
     icon: 'icon-normal_home',
   },
   {
+    id: 440,
+    pathName: 'about',
+    pid: 0,
+    sort: 1,
+    children: null,
+    code: 'sy3',
+    path: '/about',
+    type: 1,
+    icon: 'icon-normal_peizhi',
+  },
+  {
     id: 2,
     pathName: '系统',
     pid: 0,

@@ -41,9 +41,7 @@ const Navbar = (props: IProps) => {
       let params: any = {
         key: item.id,
       };
-      if (item.icon && item.path === '/home') {
-        params.icon = <IconFont type={item.icon} />;
-      }
+
       if (item.type === 2) {
         return (
           <SubMenu key={item.id} icon={<IconFont type={item.icon} />} title={item.pathName}>
@@ -51,6 +49,9 @@ const Navbar = (props: IProps) => {
           </SubMenu>
         );
       } else if (item.type === 1) {
+        if (item.icon && ['/home', '/about'].includes(item.path)) {
+          params.icon = <IconFont type={item.icon} />;
+        }
         return (
           <Menu.Item {...params} mypath={item.path}>
             {item.pathName}
