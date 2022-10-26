@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>exit@4x</title>
+    <g id="通用（21组）" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标" transform="translate(-323.000000, -1088.000000)">
+            <g id="exit" transform="translate(323.000000, 1088.000000)">
+                <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
+                <path d="M13,16 L13,17 C13,17.7956 12.6839,18.5587 12.1213,19.1213 C11.5587,19.6839 10.7956,20 10,20 L6,20 C5.20435,20 4.44129,19.6839 3.87868,19.1213 C3.31607,18.5587 3,17.7956 3,17 L3,7 C3,6.20435 3.31607,5.44129 3.87868,4.87868 C4.44129,4.31607 5.20435,4 6,4 L10,4 C10.7956,4 11.5587,4.31607 12.1213,4.87868 C12.6839,5.44129 13,6.20435 13,7 L13,8" id="路径" stroke-opacity="0.8" stroke="#243045" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M21,12 L7,12 L21,12 Z" id="路径" stroke-opacity="0.8" stroke="#243045" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M17,16 L21,12 L17,16 Z" id="路径" stroke-opacity="0.8" stroke="#243045" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M21,12 L17,8 L21,12 Z" id="路径" stroke-opacity="0.8" stroke="#243045" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

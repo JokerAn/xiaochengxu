@@ -1,0 +1,242 @@
+html {
+  // 2022-08-01版本
+  body {
+    /*#region***************** menu菜单开始 *******************/
+    .ant-layout-sider,
+    .ant-menu-sub.ant-menu-inline {
+      background: #fff;
+    }
+
+    .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu-inline > .ant-menu-item,
+    .ant-menu-sub.ant-menu-inline > .ant-menu-item {
+      height: 48px;
+      line-height: 48px;
+    }
+    .ant-menu-inline .ant-menu-submenu {
+      padding-bottom: 0;
+    }
+
+    .ant-menu.ant-menu-light {
+      font-size: 15px;
+      color: rgba(36, 48, 69, 0.8);
+      padding: 0 12px;
+      a {
+        color: rgba(36, 48, 69, 0.8);
+      }
+
+      .ant-menu-item-selected,
+      .ant-menu-item-selected:hover {
+        .ant-menu-item-icon {
+          color: #fff;
+        }
+      }
+
+      .action {
+        vertical-align: 0;
+      }
+    }
+
+    .ant-menu.ant-menu-sub {
+      color: rgba(36, 48, 69, 0.56);
+    }
+
+    .ant-menu-submenu-selected {
+      color: #5970c6;
+    }
+
+    .ant-menu.ant-menu-inline-collapsed > .ant-menu-item .ant-menu-item-icon,
+    .ant-menu-item .ant-menu-item-icon,
+    .ant-menu-submenu-title .anticon {
+      font-size: 20px;
+    }
+    .ant-menu-sub .ant-menu-item {
+      color: rgba(36, 48, 69, 0.56);
+      font-size: 13px;
+      width: calc(100% - 24px);
+      margin: 0 auto;
+      &:hover {
+        font-weight: 600;
+        .ant-menu-submenu-arrow {
+          color: red;
+        }
+      }
+      &.ant-menu-item-selected {
+        font-weight: bold;
+        background: linear-gradient(90deg, #ff382e 0%, rgba(99, 117, 200, 0.8) 100%);
+        border-radius: 11px;
+        color: #fff;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    .ant-menu-vertical .ant-menu-item:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    //一级菜单展开
+    .ant-menu.ant-menu-inline:not(.ant-menu-horizontal) .ant-menu-item-selected {
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff382e 0%, rgba(99, 117, 200, 0.8) 100%);
+      border-radius: 11px;
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    //一级菜单收缩
+    .ant-menu.ant-menu-vertical:not(.ant-menu-horizontal) .ant-menu-item-selected {
+      background: none;
+      width: 56px;
+      height: 48px;
+      margin-bottom: 0;
+    }
+
+    // 展开样式
+    .ant-menu-inline {
+    }
+    // .ant-menu-item 一级菜单
+    //.ant-menu-submenu  有子菜单的一级菜单
+    // 收缩样式
+    .ant-menu.ant-menu-vertical {
+      .ant-menu-item-selected {
+        background: none;
+      }
+
+      // 未选中状态
+      .ant-menu-item,
+      .ant-menu-submenu .ant-menu-submenu-title {
+        height: 48px;
+        line-height: 48px;
+        .ant-menu-item-icon {
+          width: 48px;
+          height: 48px;
+          line-height: 48px;
+        }
+        .anticon {
+          vertical-align: 0;
+        }
+      }
+
+      // 选中状态
+      .ant-menu-item-selected,
+      .ant-menu-submenu-selected {
+        .ant-menu-item-icon {
+          background: linear-gradient(90deg, #ff382e 0%, rgba(99, 117, 200, 0.8) 100%);
+          color: #fff;
+          border-radius: 11px;
+        }
+      }
+    }
+    .ant-menu-inline .ant-menu-item::after {
+      border-right: none;
+    }
+    .ant-menu-vertical .ant-menu-submenu {
+      padding-bottom: 0;
+    }
+    .ant-menu-sub.ant-menu-inline > .ant-menu-item,
+    .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu-inline > .ant-menu-item,
+    .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu-vertical .ant-menu-submenu-title,
+    .ant-menu.ant-menu-inline-collapsed
+      > .ant-menu-submenu
+      > .ant-menu-submenu-title
+      .ant-menu-item-icon,
+    .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .ant-menu.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu.ant-menu-inline-collapsed > .ant-menu-item {
+      padding: 0 calc(50% - 48px / 2);
+    }
+    .ant-menu-inline .ant-menu-submenu-title {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .ant-menu-submenu-selected .ant-menu-submenu-title {
+      font-weight: 600;
+    }
+    .ant-menu-inline,
+    .ant-menu-vertical,
+    .ant-menu-vertical-left {
+      border-right: none;
+    }
+    .ant-menu-submenu-title .anticon + span,
+    .ant-menu-item .ant-menu-item-icon + span {
+      margin-left: 18px;
+    }
+
+    .ant-menu-submenu-expand-icon,
+    .ant-menu-submenu-arrow {
+      color: rgba(36, 48, 69, 0.32);
+    }
+    .ant-menu-inline .ant-menu-item:not(:last-child) {
+      margin-bottom: 0;
+    }
+    .ant-menu-item-icon {
+      color: #c6cbd4;
+    }
+
+    .ant-menu-submenu-selected {
+      .ant-menu-item-icon,
+      .ant-menu-submenu-arrow {
+        color: #5970c6;
+      }
+    }
+
+    .ant-menu.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
+      font-size: 20px;
+    }
+
+    .ant-menu-light .ant-menu-item:hover,
+    .ant-menu-light .ant-menu-item-active,
+    .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+    .ant-menu-light .ant-menu-submenu-active,
+    .ant-menu-light .ant-menu-submenu-title:hover {
+      color: rgba(89, 112, 198, 1);
+
+      .ant-menu-item-icon,
+      .ant-menu-submenu-arrow {
+        color: rgba(89, 112, 198, 1);
+      }
+    }
+
+    .ant-menu.ant-menu-inline-collapsed {
+      .ant-menu-submenu.ant-menu-submenu-selected:hover {
+        .ant-menu-submenu-title,
+        .ant-menu-item-icon {
+          color: #fff;
+        }
+      }
+    }
+    .ant-menu-submenu-popup > .ant-menu-sub .ant-menu-item {
+      &.ant-menu-item-selected {
+        font-weight: bold;
+        background: rgba(239, 244, 255, 1);
+        border-radius: 0;
+        color: rgba(89, 112, 198, 1);
+        width: 100%;
+      }
+    }
+    .ant-menu-submenu-popup {
+      border-radius: 6px;
+      .ant-menu {
+        border-radius: 6px;
+      }
+    }
+
+    .ant-menu-item:active,
+    .ant-menu-submenu-title:active {
+      background: none;
+    }
+
+    /*#endregion***************** menu菜单结束 *******************/
+  }
+}

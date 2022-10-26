@@ -48,21 +48,21 @@ module.exports = {
   //   console.log(config.plugins);
   //   return config;
   // },
-  devServer: (_) => {
-    const config = _;
-    config.headers = {
-      'Access-Control-Allow-Origin': '*',
-    };
-    config.historyApiFallback = true;
-    config.hot = false;
-    // config.watchContentBase = false;官方文档过时了改为下边这一行
-    config.static.watch = false;
-    config.liveReload = false;
-    // console.log(path.resolve);
-    // config.static.directory = isPro ? '/' : path.resolve(__dirname, 'public');
+  // devServer: (_) => {
+  //   const config = _;
+  //   config.headers = {
+  //     'Access-Control-Allow-Origin': '*',
+  //   };
+  //   config.historyApiFallback = true;
+  //   config.hot = false;
+  //   // config.watchContentBase = false;官方文档过时了改为下边这一行
+  //   config.static.watch = false;
+  //   config.liveReload = false;
+  //   // console.log(path.resolve);
+  //   // config.static.directory = isPro ? '/' : path.resolve(__dirname, 'public');
 
-    return config;
-  },
+  //   return config;
+  // },
   webpack: {
     alias: {
       '@src': path.resolve('src'),

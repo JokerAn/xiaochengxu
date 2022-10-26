@@ -1,0 +1,93 @@
+.logo-wrap {
+  margin: 24px 20px 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  &.closed {
+    justify-content: center;
+  }
+  align-items: center;
+  .change {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+  }
+}
+.logo-wrap + .ant-menu {
+  height: calc(100vh - 160px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.v-user-control {
+  cursor: pointer;
+  margin: 24px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .v-user-icon {
+    height: 32px;
+    width: 32px;
+    border-radius: 17.5px;
+    border: 0;
+    color: rgba(36, 48, 69, 0.8);
+  }
+
+  .v-user-name {
+    font-size: 14px;
+    color: rgba(36, 48, 69, 0.8);
+    text-indent: 9px;
+    font-weight: 600;
+  }
+
+  .v-user-signout {
+    margin-right: '8px';
+    height: '24px';
+    width: '24px';
+    line-height: '32px';
+    color: rgba(0, 0, 0, 0.85);
+  }
+}
+
+.ant-layout-sider-collapsed {
+  .v-user-name,
+  .v-user-signout {
+    display: none;
+  }
+  .v-user-control {
+    &:hover {
+      background: rgba(255, 255, 255, 1);
+      border-radius: 29px;
+      box-shadow: 0 16px 32px 0 rgba(221, 224, 231, 0.56);
+      position: fixed;
+      z-index: 1;
+      width: 216px;
+      bottom: 0;
+      .v-user-name,
+      .v-user-signout {
+        display: block;
+      }
+    }
+  }
+}
+
+.slider {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+  box-shadow: 8px 0 24px 0 rgba(221, 224, 231, 0.32);
+  ul li {
+    border-bottom: none !important;
+  }
+
+  .ant-layout-sider-children {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .currentUser {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

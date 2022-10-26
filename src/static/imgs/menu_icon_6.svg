@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>qudao@4x</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="通用（21组）" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标" transform="translate(-391.000000, -893.000000)">
+            <path d="M173,480 L1267,480 C1274.1797,480 1280,485.820298 1280,493 L1280,2117 C1280,2124.1797 1274.1797,2130 1267,2130 L173,2130 C165.820298,2130 160,2124.1797 160,2117 L160,493 C160,485.820298 165.820298,480 173,480 Z" id="矩形"></path>
+            <g id="qudao" transform="translate(391.000000, 893.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="矩形"></g>
+                <g id="编组" mask="url(#mask-2)" stroke="#C6CBD4" stroke-width="1.8">
+                    <g transform="translate(2.900000, 2.900000)">
+                        <rect id="矩形" x="4.4408921e-16" y="9" width="5.2" height="5.2" rx="1.1"></rect>
+                        <rect id="矩形" x="4.4408921e-16" y="4.4408921e-16" width="5.2" height="5.2" rx="1.1"></rect>
+                        <rect id="矩形" x="9" y="9" width="5.2" height="5.2" rx="1.1"></rect>
+                        <line x1="9.1" y1="4.2" x2="14.1" y2="4.2" id="路径"></line>
+                        <line x1="9.1" y1="1.2" x2="12.1" y2="1.2" id="路径"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

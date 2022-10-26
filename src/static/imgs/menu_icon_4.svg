@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>dingdanguanli@4x</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="通用（21组）" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" >
+        <g id="图标" transform="translate(-347.000000, -893.000000)">
+            <path d="M173,480 L1267,480 C1274.1797,480 1280,485.820298 1280,493 L1280,2117 C1280,2124.1797 1274.1797,2130 1267,2130 L173,2130 C165.820298,2130 160,2124.1797 160,2117 L160,493 C160,485.820298 165.820298,480 173,480 Z" id="矩形"></path>
+            <g id="dingdanguanli" transform="translate(347.000000, 893.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="矩形"></g>
+                <g id="编组" mask="url(#mask-2)">
+                    <g transform="translate(2.900000, 2.900000)">
+                        <path d="M1.33226763e-15,3.1 C1.33226763e-15,1.38792 1.38792,1.33226763e-15 3.1,1.33226763e-15 L11.1,1.33226763e-15 C12.8121,1.33226763e-15 14.2,1.38792 14.2,3.1 L14.2,14.1 C14.2,14.1552 14.1552,14.2 14.1,14.2 L0.1,14.2 C0.04477,14.2 1.33226763e-15,14.1552 1.33226763e-15,14.1 L1.33226763e-15,3.1 Z" id="路径" stroke="currentColor"  stroke-width="1.8" fill="none"></path>
+                        <line x1="4.1" y1="4.2" x2="10.1" y2="4.2" id="路径" stroke="currentColor"  stroke-width="1.8" fill="none"></line>
+                        <circle id="椭圆形" stroke="none" fill="currentColor"  fill-rule="nonzero" cx="7.1" cy="8.1" r="1"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,310 @@
+@import '~antd/dist/antd.less';
+
+html {
+  body {
+    margin: 0;
+    padding: 0;
+    .vscode {
+      display: none;
+      position: absolute;
+      left: -1000px;
+      width: 0;
+      height: 0;
+    }
+    li,
+    ol,
+    ul,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .jdred {
+      color: #ea281e;
+    }
+    .fs24 {
+      font-size: 24px;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .h0 {
+      height: 0;
+      margin-bottom: 0;
+    }
+    .flexcenter {
+      display: flex;
+      align-items: center;
+    }
+    .collapsed {
+      color: rgb(81, 89, 107);
+    }
+    .margL0 {
+      margin-left: 0;
+    }
+    .margR0 {
+      margin-right: 0;
+    }
+    .margR5 {
+      margin-right: 5px;
+    }
+    .margR4 {
+      margin-right: 4px;
+    }
+    .margR8 {
+      margin-right: 8px;
+    }
+    .margL4 {
+      margin-left: 4px;
+    }
+    .margL8 {
+      margin-left: 8px;
+    }
+    .margB0 {
+      margin-bottom: 0;
+    }
+    .margB12 {
+      margin-bottom: 12px;
+    }
+    .margT0 {
+      margin-top: 0;
+    }
+    .margT20 {
+      margin-top: 20px;
+    }
+    .margB10 {
+      margin-bottom: 10px;
+    }
+    .margT10 {
+      margin-top: 10px;
+    }
+    .marg10-0 {
+      margin: 10px 0;
+    }
+    .marg12-0 {
+      margin: 12px 0;
+    }
+    .marg20-0 {
+      margin: 20px 0;
+    }
+    .marg0-10 {
+      margin: 0 10px;
+    }
+    .marg0-20 {
+      margin: 0 20px;
+    }
+    .padd20-12 {
+      padding: 20px 12px;
+    }
+    .fff {
+      background: #fff;
+    }
+    .br7 {
+      border-radius: 7px;
+    }
+    .fffbox {
+      background: #fff;
+      border-radius: 7px;
+      padding: 20px 12px;
+    }
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+@import './menu.less';
+@import './publicUINoMenu.less';
+// 微调公共组件
+html .body {
+  #root .tableComponents .ant-table-thead > tr > th,
+  #root .tableComponents .ant-table-tbody > tr > td,
+  #root .tableComponents .ant-table tfoot > tr > th,
+  #root .tableComponents .ant-table tfoot > tr > td {
+    padding: 8px;
+    word-break: break-all;
+  }
+}
+html {
+  .body {
+    .linkBtn {
+      color: #5970c6;
+      cursor: pointer;
+    }
+    .zhezhaoceng0 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 8000;
+    }
+    //400：名130+值270
+    .anPopForm,
+    .anTopSearchForm {
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 13px;
+      background: #fff;
+      padding: 20px 12px;
+      margin-bottom: 20px;
+
+      & > .ant-form-item {
+        display: flex;
+        width: 400px;
+        flex: 1 0 auto;
+        margin-bottom: 24px;
+        & > .ant-form-item-row {
+          display: flex;
+          width: 100%;
+
+          & > .ant-form-item-label {
+            width: 130px;
+            flex: none;
+          }
+          & > .ant-form-item-control {
+            flex: 1 0 auto;
+            .ant-picker,
+            .ant-select,
+            .ant-input {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .h0 {
+        height: 0;
+        margin-bottom: 0;
+      }
+      .searchBtnBox {
+        width: 100%;
+        text-align: right;
+        button {
+          margin-left: 20px;
+        }
+      }
+    }
+    //492：名130+值350/*1366屏幕放一行展示两*/
+    .anTopSearchFormBig {
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 13px;
+      background: #fff;
+      padding: 20px 12px;
+      margin-bottom: 20px;
+
+      & > .ant-form-item {
+        display: flex;
+        width: 490px;
+        flex: 1 0 auto;
+        margin-right: 12px;
+        margin-bottom: 24px;
+        & > .ant-form-item-row {
+          display: flex;
+          width: 100%;
+
+          & > .ant-form-item-label {
+            width: 130px;
+            flex: none;
+          }
+          & > .ant-form-item-control {
+            flex: 1 0 auto;
+          }
+        }
+      }
+      .h0 {
+        height: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+      }
+      .searchBtnBox {
+        width: 100%;
+        text-align: right;
+        button {
+          margin-left: 20px;
+        }
+      }
+    }
+    //弹框中的form：名130+值100%-130
+    form.anPopForm {
+      padding: 0;
+      margin-bottom: 0;
+      & > .ant-form-item {
+        margin-bottom: 0;
+        width: 100%;
+        & > .ant-form-item-row {
+          & > .ant-form-item-label {
+            margin-bottom: 24px;
+          }
+          // & > .ant-form-item-control {
+          //   flex: 1 0 auto;
+          //   & > .ant-form-item-control-input {
+          //     position: relative;
+          //     margin-bottom: 24px;
+          //   }
+          //   & > :first-child + div {
+          //     position: absolute;
+          //     bottom: 0;
+          //     width: 100%;
+          //   }
+          // }
+        }
+      }
+    }
+    .anTableBox {
+      border-radius: 13px;
+      padding: 20px 12px;
+      background: #fff;
+      .tableBtns {
+        margin-bottom: 10px;
+      }
+      .tableComponents {
+        padding: 0 !important;
+      }
+    }
+    .ant-input-group.ant-input-group-compact > *:first-child,
+    .ant-input-group.ant-input-group-compact > .ant-select:first-child > .ant-select-selector,
+    .ant-input-group.ant-input-group-compact > .ant-select-auto-complete:first-child .ant-input,
+    .ant-input-group.ant-input-group-compact > .ant-cascader-picker:first-child .ant-input {
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+    }
+    .ant-input-group.ant-input-group-compact > *:last-child,
+    .ant-input-group.ant-input-group-compact > .ant-select:last-child > .ant-select-selector,
+    .ant-input-group.ant-input-group-compact > .ant-cascader-picker:last-child .ant-input,
+    .ant-input-group.ant-input-group-compact > .ant-cascader-picker-focused:last-child .ant-input {
+      border-top-right-radius: 7px;
+      border-bottom-right-radius: 7px;
+    }
+    .tableTopFilterBox {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tableSettingIcon {
+      padding: 9px;
+      border: 1px solid #ddd;
+      border-radius: 7px;
+      margin: 0 14px;
+      cursor: pointer;
+      svg {
+        cursor: pointer;
+      }
+    }
+    #root .ant-table-tbody {
+      td.breakWord.breakWord {
+        word-break: break-word;
+      }
+    }
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+}

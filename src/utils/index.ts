@@ -201,7 +201,7 @@ export const getParentKey = (path: any, allList: any, pathName = 'path', childre
 export const getCookie = (cookieName: any) => {
   const strCookie = document.cookie;
   const cookieList = strCookie.split('; ');
-  let text = '';
+  let text: any = '';
 
   for (let i = 0; i < cookieList.length; i++) {
     const arr = cookieList[i].split('=');

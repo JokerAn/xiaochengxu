@@ -7,7 +7,7 @@ import { ConfigProvider } from 'antd';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import './index.css';
+import './index.less';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store';
