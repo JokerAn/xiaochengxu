@@ -148,7 +148,6 @@ html {
     //400：名130+值270
     .anPopForm,
     .anTopSearchForm {
-      background: red;
       display: flex;
       flex-wrap: wrap;
       border-radius: 13px;
@@ -156,29 +155,29 @@ html {
       padding: 20px 12px;
       margin-bottom: 20px;
 
-      // & > .ant-form-item {
-      //   display: flex;
-      //   width: 400px;
-      //   flex: 1 0 auto;
-      //   margin-bottom: 24px;
-      //   & > .ant-form-item-row {
-      //     display: flex;
-      //     width: 100%;
+      & > .ant-form-item {
+        display: flex;
+        width: 400px;
+        flex: 1 0 auto;
+        & > .ant-form-item-row {
+          display: flex;
+          width: 100%;
 
-      //     & > .ant-form-item-label {
-      //       width: 130px;
-      //       flex: none;
-      //     }
-      //     & > .ant-form-item-control {
-      //       flex: 1 0 auto;
-      //       .ant-picker,
-      //       .ant-select,
-      //       .ant-input {
-      //         width: 100%;
-      //       }
-      //     }
-      //   }
-      // }
+          & > .ant-form-item-label {
+            width: 130px;
+            flex: none;
+            margin-bottom: 24px;
+          }
+          & > .ant-form-item-control {
+            flex: 1 0 auto;
+            .ant-picker,
+            .ant-select,
+            .ant-input {
+              width: 100%;
+            }
+          }
+        }
+      }
       .h0 {
         height: 0;
         margin-bottom: 0;
@@ -239,23 +238,6 @@ html {
       & > .ant-form-item {
         margin-bottom: 0;
         width: 100%;
-        & > .ant-form-item-row {
-          & > .ant-form-item-label {
-            margin-bottom: 24px;
-          }
-          // & > .ant-form-item-control {
-          //   flex: 1 0 auto;
-          //   & > .ant-form-item-control-input {
-          //     position: relative;
-          //     margin-bottom: 24px;
-          //   }
-          //   & > :first-child + div {
-          //     position: absolute;
-          //     bottom: 0;
-          //     width: 100%;
-          //   }
-          // }
-        }
       }
     }
     .anTableBox {

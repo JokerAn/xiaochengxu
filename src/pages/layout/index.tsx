@@ -38,6 +38,14 @@ import { useGetUrlParams } from '@src/components/myUses';
 // import { ServicesOverview } from '../topNav/servicesOverview';
 import { baseUserInfoAPI, noticeOncallAPI } from '@src/apis/publicApis';
 import { AboutComponent } from '../about';
+import { RoleManagement } from '../userRoleManagement/role';
+import { UserManagement } from '../userRoleManagement/user';
+import { RoleAddBox } from '../userRoleManagement/role/roleAddBox';
+import { RoleEditBox } from '../userRoleManagement/role/roleEditBox';
+import { RoleSeeBox } from '../userRoleManagement/role/roleSeeBox';
+import { UserAddBox } from '../userRoleManagement/user/userAddBox';
+import { UserEditBox } from '../userRoleManagement/user/userEditBox';
+import { UserSeeBox } from '../userRoleManagement/user/userSeeBox';
 // import { ResourcesOccupiedByDepartmentsComponent } from '../resourceUse/resourcesOccupiedByDepartments';
 // import { DomainNameCallVolumeComponent } from '../resourceUse/domainNameCallVolume';
 // import { ResourcesOccupancyTrendComponent } from '../resourceUse/resourcesOccupiedByDepartments/resourcesOccupancyTrend';
@@ -56,6 +64,14 @@ const notLeftRouter: any = {
 const pathAndComponent: any = {
   // '路由单词': 组件,
   '/about': <AboutComponent />, //首页
+  '/roleManagement': <RoleManagement />, //角色管理
+  '/userManagement': <UserManagement />, //用户管理
+  '/roleAddBox': <RoleAddBox />, //权限管理-角色管理-新增
+  '/roleEditBox': <RoleEditBox />, //权限管理-角色管理-编辑
+  '/roleSeeBox': <RoleSeeBox />, //权限管理-角色管理-查看
+  '/userAddBox': <UserAddBox />, //权限管理-用户管理-新增
+  '/userEditBox': <UserEditBox />, //权限管理-用户管理-编辑
+  '/userSeeBox': <UserSeeBox />, //权限管理-用户管理-查看
   // '/home': <HomeComponent />, //首页
   // '/redis': <RedisComponent />, //服务资源-redis
   // '/mySql': <MysqlComponent />, //服务资源-Mysql

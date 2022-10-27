@@ -1,0 +1,66 @@
+.roleTree {
+  .roleTreeUl {
+    margin-left: 30px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    &.roleTreeUlOpen {
+      & > li {
+        & > ul {
+          display: block;
+        }
+      }
+      // animation: open 3s ease;
+    }
+    &.roleTreeUlClose {
+      & > li {
+        & > ul {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .roleTreeLi {
+    & > div {
+      display: flex;
+    }
+  }
+  .pngs {
+    width: 30px;
+    cursor: pointer;
+  }
+  .disabled.pngs {
+    cursor: not-allowed;
+  }
+  .disabled.png0 {
+    background: url("./pngs/disabledpng0.png") center center / 60% no-repeat;
+  }
+  .png0 {
+    background: url("./pngs/checkbox0.png") center center / 60% no-repeat;
+  }
+  .disabled.png05 {
+    background: url("./pngs/disabledpng05.png") center center / 60% no-repeat;
+  }
+  .png05 {
+    background: url("./pngs/checkbox0.5.png") center center / 60% no-repeat;
+  }
+  .disabled.png1 {
+    background: url("./pngs/disabledpng1.png") center center / 60% no-repeat;
+  }
+  .png1 {
+    background: url("./pngs/checkbox1.png") center center / 60% no-repeat;
+  }
+  .roleTreeLiJianTou {
+    cursor: pointer;
+    width: 20px;
+    background: url("./pngs/jiantoudown.png") center center / 60% no-repeat;
+  }
+  .roleTreeLiJianTouOpen {
+    transform: rotate(0deg);
+    transition: all 0.3s ease;
+  }
+  .roleTreeLiJianTouClose {
+    transform: rotate(-90deg);
+    transition: all 0.3s ease;
+  }
+}

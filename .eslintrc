@@ -38,6 +38,8 @@
     "prefer-template": 0,
     "no-useless-concat": 0,
     "one-var": 0,
+    "react/no-unused-prop-types": 0,
+    "react/no-unused-prop-types": 0,
     "react/jsx-key": 0,
     "prefer-destructuring": 0,
     "no-else-return": 0,
@@ -77,7 +79,9 @@
     "import/extensions": 0,
     "no-inline-styles": 0,
     // react
+    "import/first": "off",
     "no-alert": "off",
+    "dot-notation": "off",
     "guard-for-in": "off",
     "react/jsx-boolean-value": "off",
     "jsx-a11y/heading-has-content": "off",

@@ -4,7 +4,7 @@ import avatarImg from '@src/static/imgs/joy.png';
 import bigLogoImg from '@src/static/imgs/bigLogo.png';
 
 import { useNavigate } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, message } from 'antd';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeLeftCollapsed, leftCollapsedR, userInfoR } from '@src/store/baseSlice';
@@ -62,24 +62,31 @@ const Navbar = (props: IProps) => {
       }
     });
   };
-  useEffect(() => {
-    // console.log('localRouter', localRouter);
-    // console.log({ 'getMenuNodes(localRouter)': getMenuNodes(localRouter) });
-    setMenuNodes(getMenuNodes(localRouter));
-    // console.log(pathname);
+  const getRightCurrentRouter = () => {
     let currentPage: any = getParentKey(pathname, localRouter, 'path');
-    // console.log(currentPage);
+    console.log(currentPage);
     if (currentPage) {
       // console.log('================');
       setSelectedKeys(currentPage.type === 1 ? currentPage.id + '' : currentPage.pid + '');
       //判断如果是收起状态则无需展开
+      // message.info(collapsed ? '目前是收起状态' : '目前是展开状态');
       if (collapsed) {
         setOpenKey([]);
       } else {
         setOpenKey(currentPage.parentKey.split(','));
       }
     }
+  };
+  useEffect(() => {
+    // console.log('localRouter', localRouter);
+    // console.log({ 'getMenuNodes(localRouter)': getMenuNodes(localRouter) });
+    setMenuNodes(getMenuNodes(localRouter));
+    // console.log(pathname);
+    getRightCurrentRouter();
   }, [pathname, menuList]);
+  useEffect(() => {
+    getRightCurrentRouter();
+  }, [collapsed]);
 
   const signOut = () => {
     window.location.href = '/base/logout';
