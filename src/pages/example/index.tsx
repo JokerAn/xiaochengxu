@@ -185,6 +185,9 @@ export const ExampleComponent: FC = () => {
   const getDetail = (lineObj: any, type: string = 'detail') => {
     navigate(`/examplePageDetails?id=${lineObj.id}`);
   };
+  const exportExcel = () => {
+    message.info('点击了导出按钮');
+  };
   useEffect(() => {
     getPageList(1);
   }, []);
@@ -196,7 +199,7 @@ export const ExampleComponent: FC = () => {
         {/* table区域 */}
         <div className="anTableBox padd20-10 fff borderr10">
           <div className="tableBtns">
-            <Button>导出</Button>
+            <Button onClick={exportExcel}>导出</Button>
           </div>
           <Table
             className="tableComponents"

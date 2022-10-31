@@ -28,7 +28,7 @@ export const RoleManagementSearchForm = forwardRef((props: any, ref) => {
   return (
     <>
       <Form
-        className="anTopSearchForm"
+        className="anTopSearchForm pageTopForm"
         form={form}
         layout="inline"
         name="maitainSearcher"
