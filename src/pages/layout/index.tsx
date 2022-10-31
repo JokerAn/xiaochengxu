@@ -36,7 +36,7 @@ import { useGetUrlParams } from '@src/components/myUses';
 // import { SubnetComponent } from '../serviceResourcess/subnet';
 // import { StorageDetails } from '../serviceResourcess/cloudHost/storageDetails';
 // import { ServicesOverview } from '../topNav/servicesOverview';
-import { baseUserInfoAPI, noticeOncallAPI } from '@src/apis/publicApis';
+// import { baseUserInfoAPI } from '@src/apis/publicApis';
 import { AboutComponent } from '../about';
 import { RoleManagement } from '../userRoleManagement/role';
 import { UserManagement } from '../userRoleManagement/user';
@@ -46,8 +46,9 @@ import { RoleSeeBox } from '../userRoleManagement/role/roleSeeBox';
 import { UserAddBox } from '../userRoleManagement/user/userAddBox';
 import { UserEditBox } from '../userRoleManagement/user/userEditBox';
 import { UserSeeBox } from '../userRoleManagement/user/userSeeBox';
+import { ExampleComponent } from '../example';
+import { ExamplePageDetails } from '../example/examplePageDetails';
 // import { ResourcesOccupiedByDepartmentsComponent } from '../resourceUse/resourcesOccupiedByDepartments';
-// import { DomainNameCallVolumeComponent } from '../resourceUse/domainNameCallVolume';
 // import { ResourcesOccupancyTrendComponent } from '../resourceUse/resourcesOccupiedByDepartments/resourcesOccupancyTrend';
 // import { ExpenseDetailsComponent } from '../resourceUse/resourcesOccupiedByDepartments/expenseDetails';
 // import { FixedAssetComponent } from '../topNav/fixedAsset';
@@ -72,6 +73,8 @@ const pathAndComponent: any = {
   '/userAddBox': <UserAddBox />, //权限管理-用户管理-新增
   '/userEditBox': <UserEditBox />, //权限管理-用户管理-编辑
   '/userSeeBox': <UserSeeBox />, //权限管理-用户管理-查看
+  '/examplePage': <ExampleComponent />, //快速示例-示例页面
+  '/examplePageDetails': <ExamplePageDetails />, //快速示例-示例页面-详情
   // '/home': <HomeComponent />, //首页
   // '/redis': <RedisComponent />, //服务资源-redis
   // '/mySql': <MysqlComponent />, //服务资源-Mysql
@@ -92,7 +95,6 @@ const pathAndComponent: any = {
   // '/resourcesOccupancyTrend': <ResourcesOccupancyTrendComponent />, //资源使用-部门占用资源-占用趋势
   // '/expenseDetails': <ExpenseDetailsComponent />, //资源使用-部门占用资源-费用明细
   // '/nonPublicBoothFeeDetail': <NonPublicBoothFeeDetail />, //资源使用-部门占用资源-费用明细-非公摊费用明细
-  // '/domainNameCallVolume': <DomainNameCallVolumeComponent />, //资源使用-域名调用量
 };
 
 export const LayOut: FC = () => {
@@ -204,7 +206,7 @@ export const LayOut: FC = () => {
   };
   const dispatch = useDispatch();
   useEffect(() => {
-    baseUserInfoAPI()
+    /* baseUserInfoAPI()
       .then((result: any) => {
         console.log(result.data);
         dispatch(userInfoF(result.data));
@@ -217,7 +219,7 @@ export const LayOut: FC = () => {
       })
       .catch((err: any) => {
         console.log(err);
-      });
+      }); */
   }, []);
   useEffect(() => {
     let showBreadcrumb: any = [];

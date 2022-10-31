@@ -16,6 +16,13 @@ let axiosInstance: any = axios.create({
     return true;
   },
 });
+const isExampleApi = (apiStr: string) => {
+  const exampleApiLists: string[] = [
+    'https://mock.mengxuegu.com/mock/635f896affa946598c7424a0/example/getTableList1',
+  ];
+  console.log(apiStr, exampleApiLists.includes(apiStr));
+  return exampleApiLists.includes(apiStr);
+};
 const notNeedMessage = (res: any) => {
   if (res?.config?.url?.startsWith('/apis/vendor/existUnitySocialCode/')) {
     return true;
@@ -33,8 +40,11 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (response: any) => {
     let data: any = response.data;
+    if (isExampleApi(response.config.url)) {
+      return Promise.resolve(data);
+    }
     if (data.code === 200) {
-      return Promise.resolve(response.data);
+      return Promise.resolve(data);
     } else if (response.status === 404) {
       message.error('服务器异常，请稍后');
       return Promise.reject(response);

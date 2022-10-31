@@ -1,14 +1,14 @@
 import { message } from 'antd';
 import qs from 'qs';
 import { useEffect, useRef, useState } from 'react';
-import dayjs, { Dayjs } from 'dayjs';
+import moment from 'moment';
 
 export const ranges: any = {
-  今天: [dayjs(), dayjs()],
-  近三天: [dayjs().subtract(2, 'day'), dayjs()],
-  近一周: [dayjs().subtract(6, 'day'), dayjs()],
-  近三十天: [dayjs().subtract(29, 'day'), dayjs()],
-  本月: [dayjs().startOf('month'), dayjs()],
+  今天: [moment(), moment()],
+  近三天: [moment().subtract(2, 'day'), moment()],
+  近一周: [moment().subtract(6, 'day'), moment()],
+  近三十天: [moment().subtract(29, 'day'), moment()],
+  本月: [moment().startOf('month'), moment()],
 };
 export const debounce = (fn: any, delay = 500) => {
   //默认500毫秒

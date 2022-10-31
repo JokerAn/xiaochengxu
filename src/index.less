@@ -123,12 +123,20 @@ code {
 @import './publicUINoMenu.less';
 // 微调公共组件
 html .body {
+  // 如果表格列数多 可以适当重新定义每一个表格的padding大小
   #root .tableComponents .ant-table-thead > tr > th,
   #root .tableComponents .ant-table-tbody > tr > td,
   #root .tableComponents .ant-table tfoot > tr > th,
   #root .tableComponents .ant-table tfoot > tr > td {
     padding: 8px;
     word-break: break-all;
+  }
+  #root .tableComponents .ant-table {
+    .tableBtns {
+      & > button {
+        margin: 0 4px;
+      }
+    }
   }
 }
 html {
@@ -145,6 +153,10 @@ html {
       bottom: 0;
       z-index: 8000;
     }
+    .pageTopForm {
+      padding: 20px 12px;
+      margin-bottom: 20px;
+    }
     //400：名130+值270
     .anPopForm,
     .anTopSearchForm {
@@ -152,8 +164,6 @@ html {
       flex-wrap: wrap;
       border-radius: 13px;
       background: #fff;
-      padding: 20px 12px;
-      margin-bottom: 20px;
 
       & > .ant-form-item {
         display: flex;
@@ -196,8 +206,6 @@ html {
       flex-wrap: wrap;
       border-radius: 13px;
       background: #fff;
-      padding: 20px 12px;
-      margin-bottom: 20px;
 
       & > .ant-form-item {
         display: flex;

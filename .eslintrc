@@ -39,7 +39,6 @@
     "no-useless-concat": 0,
     "one-var": 0,
     "react/no-unused-prop-types": 0,
-    "react/no-unused-prop-types": 0,
     "react/jsx-key": 0,
     "prefer-destructuring": 0,
     "no-else-return": 0,
