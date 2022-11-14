@@ -234,13 +234,15 @@ export const ExampleComponent: FC = () => {
           setRemarkPop(false);
         }}
         onOk={() => {
-          console.log(remarkForm.getFieldsValue());
-          setRemarkLoading(true);
-          setTimeout(() => {
-            setRemarkLoading(false);
-            setRemarkPop(false);
-            message.success('成功');
-          }, 1000);
+          remarkForm.validateFields().then((values: any) => {
+            console.log(values);
+            setRemarkLoading(true);
+            setTimeout(() => {
+              setRemarkLoading(false);
+              setRemarkPop(false);
+              message.success('成功');
+            }, 1000);
+          });
         }}
         okButtonProps={{
           style: { marginLeft: '16px' },
@@ -265,7 +267,7 @@ export const ExampleComponent: FC = () => {
               md: { span: 16 },
             }}
           >
-            <Form.Item label="对账任务ID" name="id" className="margB0">
+            <Form.Item label="对账任务ID" name="id" rules={[{ required: true }]}>
               <Input className="inputspan" disabled />
             </Form.Item>
             <Form.Item label="备注" name="remark">
