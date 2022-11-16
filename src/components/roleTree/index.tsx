@@ -192,14 +192,14 @@ export const RoleTree = (props: propsTypes) => {
     //注意 在权限系统中 子集的取消只会让父级变为半选状态，不能变为取消状态，即使最后一个子集也被取消了父级仍是半选状态
     // (如：发票管理页面下边只有一个导出按钮  当导出按钮被取消选中 发票管理页面应为半选状态：可访问发票管理页面 只是页面中没有导出按钮了)
     // 子集的选中会正常影响父级
-    console.log(checkedNumber, 'checkedNumber');
+    // console.log(checkedNumber, 'checkedNumber');
     let parents: any = parent;
 
     if (checkedNumber === '0') {
       while (parents) {
         parents.checkedNumber = '05';
         parents = parents.parent;
-        console.log(parents);
+        // console.log(parents);
       }
     } else if (checkedNumber === '1') {
       while (parents) {

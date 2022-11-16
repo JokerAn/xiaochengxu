@@ -1,9 +1,16 @@
 import { FC, useState, useEffect, useRef } from 'react';
 import { Form, Table, Button, message, Spin, Pagination, Input, Modal, Drawer } from 'antd';
 import { TopForm } from './topForm';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getExampleTableList1API } from '@src/apis/publicApis';
-export const ExampleComponent: FC = () => {
+import { useActivate, useAliveController, useUnactivate } from 'react-activation';
+import { useKeepAliveActive } from '@src/components/myUses';
+import store from '@src/store/store';
+import { useSelector } from 'react-redux';
+import { historyPathsR } from '@src/store/baseSlice';
+export const ExampleComponent: FC = (props: any) => {
+  let location: any = useLocation();
+  const { pathname } = location;
   let navigate: any = useNavigate();
   const { TextArea } = Input;
   const [remarkForm] = Form.useForm();
@@ -148,7 +155,7 @@ export const ExampleComponent: FC = () => {
     setTableLoading(true);
     getExampleTableList1API(canshu)
       .then((result: any) => {
-        console.log(result);
+        // console.log(result);
         setPageListData({
           model: result.data,
           current: canshu.current,
@@ -191,6 +198,13 @@ export const ExampleComponent: FC = () => {
   useEffect(() => {
     getPageList(1);
   }, []);
+  const { dropScope, getCachingNodes, clear } = useAliveController();
+  useKeepAliveActive(
+    () => {},
+    () => {
+      console.log('卸载完毕');
+    }
+  );
   return (
     <div className="pageBox">
       <Spin spinning={tableLoading} delay={100}>

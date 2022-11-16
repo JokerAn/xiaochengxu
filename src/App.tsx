@@ -6,7 +6,6 @@ import { NewsComponent } from './pages/news';
 import { createFromIconfontCN } from '@ant-design/icons';
 import { LayOut } from './pages/layout';
 import { Select } from 'antd';
-console.log(Select);
 export const MySelect = (prop: any) => {
   const { children, ...props }: any = prop;
   return (

@@ -125,7 +125,7 @@ export function chinaDate(times?: any, fengefu = '-') {
   };
 }
 export function getUrlParams(urlSearch: string): any {
-  console.log('getUrlParams函数执行了');
+  // console.log('getUrlParams函数执行了');
   if (urlSearch.length === 0) {
     return {};
   } else {
@@ -574,4 +574,18 @@ export const flatArrayBecomeTreeArray = (
     passArray.filter((item: any) => item[pidName] !== pidValue)
   );
   return finallyArray;
+};
+//根据path获取路由定义时的具体配置
+export const getTreeItemByPath = (treeData: any[], path: any) => {
+  let selfObj: any = null;
+  treeData.forEach((item: any) => {
+    if (item.path === path) {
+      selfObj = item;
+    } else {
+      if (item.children?.length && selfObj === null) {
+        selfObj = getTreeItemByPath(item.children, path);
+      }
+    }
+  });
+  return selfObj;
 };

@@ -20,7 +20,7 @@ const isExampleApi = (apiStr: string) => {
   const exampleApiLists: string[] = [
     'https://mock.mengxuegu.com/mock/635f896affa946598c7424a0/example/getTableList1',
   ];
-  console.log(apiStr, exampleApiLists.includes(apiStr));
+  // console.log(apiStr, exampleApiLists.includes(apiStr));
   return exampleApiLists.includes(apiStr);
 };
 const notNeedMessage = (res: any) => {

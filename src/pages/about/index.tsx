@@ -1,9 +1,6 @@
 import { MySelect } from '@src/App';
-import { isLocal } from '@src/utils';
 import { Button, Form, Input, Modal, Select } from 'antd';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { userInfoR } from '../../store/baseSlice';
 const lists: any = [
   {
     appSystemNameCN: '公司官网',
@@ -2263,10 +2260,6 @@ const lists: any = [
 ];
 
 export const AboutComponent: any = () => {
-  const userInfo: any = useSelector(userInfoR);
-  if (isLocal()) {
-    console.log(1);
-  }
   const [ModalForm] = Form.useForm();
   const [ModalForm2] = Form.useForm();
   const [isVisible, isVisibleSet] = useState<boolean>(false);
@@ -2289,7 +2282,7 @@ export const AboutComponent: any = () => {
           });
         }}
       >
-        我是about页面2{JSON.stringify(userInfo)}
+        我是about页面2
       </div>
       <div>
         <MySelect
@@ -2316,6 +2309,7 @@ export const AboutComponent: any = () => {
           rules={[{ required: true, message: '请选择所属系统' }]}
         >
           <Select
+            style={{ padding: '50px', border: '1px solid red' }}
             listItemHeight={32}
             showSearch
             allowClear
@@ -2330,6 +2324,9 @@ export const AboutComponent: any = () => {
           </Select>
         </Form.Item>
       </Form>
+      <Button icon={false} style={{ width: '300px' }}>
+        测试按钮
+      </Button>
 
       <Modal
         width={500}

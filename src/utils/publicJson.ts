@@ -446,6 +446,7 @@ let linshi: any = [
     children: [
       {
         id: 51,
+        cachePath: `${JSON.stringify(['/examplePageDetails'])}`,
         pathName: '示例页面',
         pid: 5,
         sort: 1,

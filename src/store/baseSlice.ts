@@ -1,19 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit';
+interface sliceInitialStatePros {
+  historyPaths: any[];
+  zhezhaoceng0Show: boolean;
+  userInfo: {
+    userName?: string;
+    mobile?: string;
+    erpName?: string;
+    menuList: any[];
+    flatRouter: any[];
+    [others: string]: any;
+  };
+  leftCollapsed: boolean;
+  [others: string]: any;
+}
+let initialStateData: sliceInitialStatePros = {
+  historyPaths: [window.location.pathname],
+  userInfo: { userName: '-', mobile: '', erpName: '', menuList: [], flatRouter: [] },
+  zhezhaoceng0Show: false,
+  testObj: { value: 1, menuList: [{ path: '默认' }] },
+  // 左侧导航是否折叠
+  leftCollapsed: (window.innerWidth || document.documentElement.clientWidth) < 992,
+};
 export const slice = createSlice({
   name: 'base',
-  initialState: {
-    userInfo: { userName: '-', mobile: '', erpName: '', menuList: [] },
-    zhezhaoceng0Show: false,
-    testObj: { value: 1, menuList: [{ path: '默认' }] },
-    // 左侧导航是否折叠
-    leftCollapsed: (window.innerWidth || document.documentElement.clientWidth) < 992,
-  },
+  initialState: initialStateData,
   reducers: {
     userInfoF: (state, { payload }) => {
       console.log(payload);
       state.userInfo = {
+        ...state.userInfo,
         ...payload,
       };
+    },
+    historyPathsF: (state, { payload }) => {
+      console.log([payload, ...state.historyPaths].slice(0, 3));
+      state.historyPaths = [payload, ...state.historyPaths].slice(0, 3) as any;
     },
     changeLeftCollapsed: (state, { payload }) => {
       state.leftCollapsed = payload;
@@ -30,13 +51,11 @@ export const slice = createSlice({
 //   });
 // };
 
-export const { userInfoF, changeLeftCollapsed, zhezhaoceng0ShowF } = slice.actions;
-export const userInfoR = (state: any) => {
-  // console.log(state);
-  return state.baseReducer.userInfo;
-};
+export const { userInfoF, changeLeftCollapsed, zhezhaoceng0ShowF, historyPathsF } = slice.actions;
+export const userInfoR = (state: any) => state.baseReducer.userInfo;
 export const leftCollapsedR = (state: any) => {
   return state.baseReducer.leftCollapsed;
 };
+export const historyPathsR = (state: any) => state.baseReducer.historyPaths;
 export const zhezhaoceng0ShowR = (state: any) => state.baseReducer.zhezhaoceng0Show;
 export default slice.reducer;

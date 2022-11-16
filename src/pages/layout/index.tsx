@@ -1,4 +1,6 @@
-import { FC, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { FC, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { KeepAlive, AliveScope } from 'react-activation';
+
 import Navbar from '@src/pages/layout/Navbar';
 import {
   Routes,
@@ -11,12 +13,12 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import './index.less';
-import { Breadcrumb, Button, Layout, Modal } from 'antd';
+import { Breadcrumb, Button, Input, Layout, Modal } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { localRouter } from '@src/utils/publicJson';
-import { leftCollapsedR, userInfoF, zhezhaoceng0ShowR } from '@src/store/baseSlice';
+import { leftCollapsedR, userInfoF, userInfoR, zhezhaoceng0ShowR } from '@src/store/baseSlice';
 import { IconFont } from '@src/App';
-import { createParentKey, deepClone, getCookie } from '@src/utils';
+import { createParentKey, deepClone, getCookie, getTreeItemByPath } from '@src/utils';
 import { gongGaoEnum } from '@src/utils/enumList';
 
 import { useGetUrlParams } from '@src/components/myUses';
@@ -55,7 +57,12 @@ import { ExamplePageDetails } from '../example/examplePageDetails';
 // import { NonPublicBoothFeeDetail } from '../resourceUse/resourcesOccupiedByDepartments/nonPublicBoothFeeDetail';
 export const JustTestPage: FC = (props: any) => {
   //方便开发环境的一个假页面
-  return <div className="pageBottomBox">{props.children || '请联系管理员开通'}</div>;
+  return (
+    <div className="pageBottomBox">
+      {props.children || '请联系管理员开通'}
+      <Input></Input>
+    </div>
+  );
 };
 const { Content } = Layout;
 const notLeftRouter: any = {
@@ -98,19 +105,43 @@ const pathAndComponent: any = {
 };
 
 export const LayOut: FC = () => {
+  const pageThat = useRef<any>({
+    ajaxRouter: [],
+  });
   const navigator: any = useNavigate();
   const [searchObj] = useGetUrlParams();
   const location: any = useLocation();
   const { pathname } = location;
   const [pathRoute, setPathRoute] = useState<any>([]);
-  //ajaxRouter 应为后端返回的左侧导航树 目前为测试数据
-  const ajaxRouter: any[] = localRouter;
+  const needCache = (currentPath: string) => {
+    let currentPathInfo: any = getTreeItemByPath(pageThat.current.ajaxRouter, currentPath) || {};
+    // console.log(currentPathInfo);
+    // let cachePaths:any=currentPathInfo.cachePath?JSON.parse(currentPathInfo.cachePath):[]
+    // console.log(currentPathInfo.cachePath ? '需要缓存' : '不需要缓存');
+    if (currentPathInfo.cachePath) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const getRouteF = (arrays: any) => {
     let pathRoutes: any = [];
     const fun = (passArrays: any) => {
       passArrays.forEach((item: any) => {
         if (item?.path?.startsWith('/')) {
-          let linshi = pathAndComponent[item.path] || <JustTestPage />;
+          let linshi = <JustTestPage />;
+          if (pathAndComponent[item.path]) {
+            if (needCache(item.path)) {
+              linshi = (
+                <KeepAlive name={item.path} cacheKey={item.path} id={item.path}>
+                  {pathAndComponent[item.path]}
+                </KeepAlive>
+              );
+            } else {
+              linshi = pathAndComponent[item.path];
+            }
+          }
           pathRoutes.push(<Route path={item.path} key={item.path} element={linshi} />);
         }
         if (item.children?.length > 0) {
@@ -205,7 +236,31 @@ export const LayOut: FC = () => {
     return flatRouter;
   };
   const dispatch = useDispatch();
-  useEffect(() => {
+  const getUserInfo = () => {
+    setTimeout(() => {
+      let data: any = {
+        data: {
+          menuList: deepClone(localRouter),
+        },
+      };
+      if (data.data) {
+        createParentKey(data.data.menuList);
+        console.log(deepClone(data.data.menuList));
+
+        let flatRouter: any = getFlatRouter(deepClone(data.data.menuList));
+        console.log(flatRouter);
+        dispatch(
+          userInfoF({
+            menuList: deepClone(data.data.menuList),
+            flatRouter,
+          })
+        );
+        setParentObj(data.data.menuList, null);
+        pageThat.current.ajaxRouter = data.data.menuList;
+
+        setPathRoute(getRouteF(data.data.menuList));
+      }
+    }, 200);
     /* baseUserInfoAPI()
       .then((result: any) => {
         console.log(result.data);
@@ -220,8 +275,12 @@ export const LayOut: FC = () => {
       .catch((err: any) => {
         console.log(err);
       }); */
+  };
+  useEffect(() => {
+    getUserInfo();
   }, []);
   useEffect(() => {
+    console.log(1);
     let showBreadcrumb: any = [];
     // console.log('------pathname=', pathname, searchObj);
     const pathSnippets = pathname.split('/').filter((i: any) => i);
@@ -265,9 +324,6 @@ export const LayOut: FC = () => {
     }
     setBreadcrumbItems([...showBreadcrumb]);
   }, [pathname, flatRouter]);
-  useEffect(() => {
-    setPathRoute(getRouteF(ajaxRouter));
-  }, []);
   const setParentObj = (ress: any = [], parents: any) => {
     ress.forEach((item: any) => {
       item.parentObj = parents;
@@ -276,31 +332,11 @@ export const LayOut: FC = () => {
       }
     });
   };
-  const loadLoginData = () => {
-    try {
-      // //使用本地路由
-      let data: any = {
-        data: {
-          menuList: localRouter,
-        },
-      };
-      if (data.data) {
-        setParentObj(data.data.menuList, null);
-        createParentKey(data.data.menuList);
-        getFlatRouter(deepClone(data.data.menuList));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const resizeRef = useRef<any>(null);
-  useEffect(() => {
-    loadLoginData();
-  }, []);
   const zhezhaoceng0Show = useSelector(zhezhaoceng0ShowR);
   return (
     <Layout style={{ minHeight: '100vh' }} id="layoutComponent">
-      <Navbar menuList={localRouter} />
+      <Navbar menuList={pageThat.current.ajaxRouter} />
       <div
         className={
           collapsed ? 'box-collapsed box-collapsed-true' : 'box-collapsed box-collapsed-false'
@@ -363,7 +399,9 @@ export const LayOut: FC = () => {
             {/* h6不可删除！其他页面有用到 */}
             <h6 style={{ position: 'relative', zIndex: -100, opacity: 0 }} ref={resizeRef}></h6>
             <div className="list_product">
-              <Routes>{pathRoute}</Routes>
+              <AliveScope>
+                <Routes>{pathRoute}</Routes>
+              </AliveScope>
             </div>
           </Content>
         </Layout>

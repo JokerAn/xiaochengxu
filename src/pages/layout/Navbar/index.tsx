@@ -64,7 +64,7 @@ const Navbar = (props: IProps) => {
   };
   const getRightCurrentRouter = () => {
     let currentPage: any = getParentKey(pathname, localRouter, 'path');
-    console.log(currentPage);
+    // console.log(currentPage);
     if (currentPage) {
       // console.log('================');
       setSelectedKeys(currentPage.type === 1 ? currentPage.id + '' : currentPage.pid + '');
