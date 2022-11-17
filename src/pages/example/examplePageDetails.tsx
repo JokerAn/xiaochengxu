@@ -33,14 +33,6 @@ export const ExamplePageDetails = () => {
       >
         某些ajax操作后的返回-列表页应当刷新最新数据
       </Button>
-      <Button
-        danger
-        onClick={() => {
-          dispath(historyPathsF(Math.random()));
-        }}
-      >
-        dispath
-      </Button>
       <Input></Input>
     </div>
   );
