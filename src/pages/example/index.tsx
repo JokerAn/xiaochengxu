@@ -4,7 +4,7 @@ import { TopForm } from './topForm';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getExampleTableList1API } from '@src/apis/publicApis';
 import { useActivate, useAliveController, useUnactivate } from 'react-activation';
-import { useKeepAliveActive } from '@src/components/myUses';
+import { useKeepAliveEffect } from '@src/components/myUses';
 import store from '@src/store/store';
 import { useSelector } from 'react-redux';
 import { historyPathsR } from '@src/store/baseSlice';
@@ -200,7 +200,7 @@ export const ExampleComponent: FC = (props: any) => {
     getPageList(1);
   }, []);
   const { dropScope, getCachingNodes, clear } = useAliveController();
-  useKeepAliveActive(
+  useKeepAliveEffect(
     () => {},
     () => {
       console.log('卸载完毕');

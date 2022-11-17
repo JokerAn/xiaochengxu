@@ -126,7 +126,7 @@ export const LayOut: FC = () => {
           if (pathAndComponent[item.path]) {
             if (needCache(item.path)) {
               linshi = (
-                <KeepAlive name={item.path} cacheKey={item.path} id={item.path}>
+                <KeepAlive autoFreeze={false} name={item.path} cacheKey={item.path} id={item.path}>
                   {pathAndComponent[item.path]}
                 </KeepAlive>
               );

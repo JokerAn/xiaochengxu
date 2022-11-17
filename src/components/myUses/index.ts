@@ -80,7 +80,7 @@ export const useZhezhaoceng0Toggle = (res = () => {}) => {
 };
 
 //keep-alive封装
-export const useKeepAliveActive = (activateF = () => {}, unactivate = () => {}) => {
+export const useKeepAliveEffect = (activateF = () => {}, unactivate = () => {}) => {
   let historyPaths: any = useSelector(historyPathsR);
   let userInfo: any = useSelector(userInfoR);
   let location: any = useLocation();
@@ -88,20 +88,6 @@ export const useKeepAliveActive = (activateF = () => {}, unactivate = () => {}) 
 
   const { pathname } = location;
   useActivate(() => {
-    console.log(pathname, getCachingNodes());
-    // 做一下公共的事情
-    function addStyle(styleStr = ';', className = '') {
-      var style = document.createElement('style');
-      style.className = className;
-      style.appendChild(document.createTextNode(styleStr));
-      var head = document.getElementsByTagName('head')[0];
-      head.appendChild(style);
-    }
-    addStyle(`.ant-btn-loading-icon>span{display:none!important}`, 'anRemoveBtnLoading');
-    requestAnimationFrame(() => {
-      let anRemoveBtnLoading: any = document.querySelector('.anRemoveBtnLoading');
-      anRemoveBtnLoading?.parentNode.removeChild(anRemoveBtnLoading);
-    });
     console.log('useActivate');
     activateF();
   });

@@ -1,4 +1,4 @@
-import { useGetUrlParams, useKeepAliveActive } from '@src/components/myUses';
+import { useGetUrlParams, useKeepAliveEffect } from '@src/components/myUses';
 import { Button, Input } from 'antd';
 import { useAliveController } from 'react-activation';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ export const ExamplePageDetails = () => {
   const { dropScope, getCachingNodes, clear } = useAliveController();
   let historyPaths: any = useSelector(historyPathsR);
   const dispath = useDispatch();
-  useKeepAliveActive(
+  useKeepAliveEffect(
     () => {},
     () => {
       console.log('即将离开', historyPaths, location.pathname);

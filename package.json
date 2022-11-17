@@ -21,7 +21,7 @@
     "craco-less": "^2.0.0",
     "history": "^5.3.0",
     "react": "^18.2.0",
-    "react-activation": "^0.12.1",
+    "react-activation": "^0.12.2",
     "react-dev-inspector": "^1.8.1",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.4",
