@@ -7,7 +7,6 @@ interface sliceInitialStatePros {
     mobile?: string;
     erpName?: string;
     menuList: any[];
-    flatRouter: any[];
     [others: string]: any;
   };
   leftCollapsed: boolean;

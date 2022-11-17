@@ -453,7 +453,7 @@ let linshi: any = [
         children: [
           {
             id: 511,
-            pathName: '费用明细',
+            pathName: '详情页面',
             pid: 51,
             sort: 0,
             code: 'examplePageDetails',

@@ -237,19 +237,15 @@ export const LayOut: FC = () => {
       };
       if (data.data) {
         createParentKey(data.data.menuList);
-        console.log(deepClone(data.data.menuList));
-
-        let flatRouter: any = getFlatRouter(deepClone(data.data.menuList));
-        console.log(flatRouter);
+        let menuListNoParetn: any = deepClone(data.data.menuList);
+        setParentObj(data.data.menuList, null);
         dispatch(
           userInfoF({
-            menuList: deepClone(data.data.menuList),
-            flatRouter,
+            menuList: menuListNoParetn,
           })
         );
-        setParentObj(data.data.menuList, null);
         pageThat.current.ajaxRouter = data.data.menuList;
-
+        getFlatRouter(data.data.menuList);
         setPathRoute(getRouteF(data.data.menuList));
       }
     }, 200);
@@ -269,12 +265,19 @@ export const LayOut: FC = () => {
       }); */
   };
   useEffect(() => {
+    if (isInit) {
+      isInitSet(false);
+    }
     getUserInfo();
   }, []);
   const cachePages: any = {
     '/examplePageDetails': ['/examplePage'],
   };
+  const [isInit, isInitSet] = useState<boolean>(true);
   useEffect(() => {
+    if (isInit) {
+      return;
+    }
     let saveCachePages: any = cachePages[pathname];
     if (saveCachePages?.length) {
       setTimeout(() => {
@@ -287,11 +290,11 @@ export const LayOut: FC = () => {
               dropScope(item);
             });
         }
-      }, 50);
+      }, 100);
     } else {
       setTimeout(() => {
         clear();
-      }, 50);
+      }, 100);
     }
   }, [pathname]);
   useEffect(() => {
