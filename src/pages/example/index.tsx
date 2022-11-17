@@ -8,6 +8,7 @@ import { useKeepAliveActive } from '@src/components/myUses';
 import store from '@src/store/store';
 import { useSelector } from 'react-redux';
 import { historyPathsR } from '@src/store/baseSlice';
+import { createBrowserHistory } from 'history';
 export const ExampleComponent: FC = (props: any) => {
   let location: any = useLocation();
   const { pathname } = location;
@@ -205,6 +206,14 @@ export const ExampleComponent: FC = (props: any) => {
       console.log('卸载完毕');
     }
   );
+  let history: any = createBrowserHistory();
+
+  useEffect(() => {
+    console.log(history);
+    history.listen((res: any) => {
+      console.log('示例页面history', res);
+    });
+  }, []);
   return (
     <div className="pageBox">
       <Spin spinning={tableLoading} delay={100}>

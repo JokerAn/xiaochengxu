@@ -1,5 +1,5 @@
 import { FC, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { KeepAlive, AliveScope } from 'react-activation';
+import { KeepAlive, AliveScope, useAliveController } from 'react-activation';
 
 import Navbar from '@src/pages/layout/Navbar';
 import {
@@ -113,18 +113,10 @@ export const LayOut: FC = () => {
   const location: any = useLocation();
   const { pathname } = location;
   const [pathRoute, setPathRoute] = useState<any>([]);
+  const needCachePages: any = ['/examplePage'];
   const needCache = (currentPath: string) => {
-    let currentPathInfo: any = getTreeItemByPath(pageThat.current.ajaxRouter, currentPath) || {};
-    // console.log(currentPathInfo);
-    // let cachePaths:any=currentPathInfo.cachePath?JSON.parse(currentPathInfo.cachePath):[]
-    // console.log(currentPathInfo.cachePath ? '需要缓存' : '不需要缓存');
-    if (currentPathInfo.cachePath) {
-      return true;
-    } else {
-      return false;
-    }
+    return needCachePages.includes(currentPath);
   };
-
   const getRouteF = (arrays: any) => {
     let pathRoutes: any = [];
     const fun = (passArrays: any) => {
@@ -279,6 +271,29 @@ export const LayOut: FC = () => {
   useEffect(() => {
     getUserInfo();
   }, []);
+  const cachePages: any = {
+    '/examplePageDetails': ['/examplePage'],
+  };
+  useEffect(() => {
+    let saveCachePages: any = cachePages[pathname];
+    if (saveCachePages?.length) {
+      setTimeout(() => {
+        if (saveCachePages?.length) {
+          console.log(getCachingNodes());
+          let allCachePages = getCachingNodes();
+          allCachePages
+            .filter((item: any) => !saveCachePages.includes(item))
+            .forEach((item: any) => {
+              dropScope(item);
+            });
+        }
+      }, 50);
+    } else {
+      setTimeout(() => {
+        clear();
+      }, 50);
+    }
+  }, [pathname]);
   useEffect(() => {
     console.log(1);
     let showBreadcrumb: any = [];
@@ -332,8 +347,10 @@ export const LayOut: FC = () => {
       }
     });
   };
-  const resizeRef = useRef<any>(null);
+  const { dropScope, getCachingNodes, clear } = useAliveController();
+
   const zhezhaoceng0Show = useSelector(zhezhaoceng0ShowR);
+
   return (
     <Layout style={{ minHeight: '100vh' }} id="layoutComponent">
       <Navbar menuList={pageThat.current.ajaxRouter} />
@@ -396,8 +413,6 @@ export const LayOut: FC = () => {
             </ul>
           </div>
           <Content style={{ margin: '20px 32px' }}>
-            {/* h6不可删除！其他页面有用到 */}
-            <h6 style={{ position: 'relative', zIndex: -100, opacity: 0 }} ref={resizeRef}></h6>
             <div className="list_product">
               <AliveScope>
                 <Routes>{pathRoute}</Routes>

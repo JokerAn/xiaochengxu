@@ -107,19 +107,6 @@ export const useKeepAliveActive = (activateF = () => {}, unactivate = () => {}) 
   });
 
   useUnactivate(() => {
-    // 公共的事情
-    console.log(historyPaths);
-    let currentPathInfo: any = getTreeItemByPath(userInfo.menuList, pathname);
-    let cachePaths: any[] = currentPathInfo.cachePath ? JSON.parse(currentPathInfo.cachePath) : [];
-    console.log(cachePaths, historyPaths[0]);
-    if (cachePaths.includes(historyPaths[0])) {
-      console.log('无需清除缓存，跳转到此页面我得缓存自己');
-    } else {
-      console.log('需要清除缓存了，即将跳转的页面跟我没得关系，我才不会为他缓存自己的');
-      setTimeout(() => {
-        dropScope(pathname);
-      }, 100);
-    }
     console.log('useUnactivate');
     unactivate();
   });
