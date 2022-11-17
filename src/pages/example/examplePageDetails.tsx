@@ -2,7 +2,6 @@ import { useGetUrlParams, useKeepAliveEffect } from '@src/components/myUses';
 import { Button, Input } from 'antd';
 import { useAliveController } from 'react-activation';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { historyPathsF, historyPathsR, userInfoF } from '@src/store/baseSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const ExamplePageDetails = () => {
@@ -10,19 +9,7 @@ export const ExamplePageDetails = () => {
   let location: any = useLocation();
   const [searchObj] = useGetUrlParams();
   const { dropScope, getCachingNodes, clear } = useAliveController();
-  let historyPaths: any = useSelector(historyPathsR);
   const dispath = useDispatch();
-  useKeepAliveEffect(
-    () => {},
-    () => {
-      console.log('即将离开', historyPaths, location.pathname);
-      if (historyPaths[0] !== '/examplePage') {
-        dropScope(location.pathname).then(() => {
-          console.log('示例页面的详情页清除缓存完毕');
-        });
-      }
-    }
-  );
   return (
     <div className="pageBox padd20 fff" style={{ padding: '20px' }}>
       <h2 className="margB10" style={{ padding: '40px' }}>

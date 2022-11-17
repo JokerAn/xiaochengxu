@@ -33,8 +33,7 @@ export const slice = createSlice({
       };
     },
     historyPathsF: (state, { payload }) => {
-      console.log([payload, ...state.historyPaths].slice(0, 3));
-      state.historyPaths = [payload, ...state.historyPaths].slice(0, 3) as any;
+      state.historyPaths = [payload, ...state.historyPaths].slice(0, 5) as any;
     },
     changeLeftCollapsed: (state, { payload }) => {
       state.leftCollapsed = payload;

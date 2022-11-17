@@ -1,9 +1,4 @@
-import {
-  changeLeftCollapsed,
-  historyPathsR,
-  userInfoR,
-  zhezhaoceng0ShowF,
-} from '@src/store/baseSlice';
+import { changeLeftCollapsed, userInfoR, zhezhaoceng0ShowF } from '@src/store/baseSlice';
 import { getTreeItemByPath, getUrlParams, throttle } from '@src/utils';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useActivate, useAliveController, useUnactivate } from 'react-activation';
@@ -81,7 +76,6 @@ export const useZhezhaoceng0Toggle = (res = () => {}) => {
 
 //keep-alive封装
 export const useKeepAliveEffect = (activateF = () => {}, unactivate = () => {}) => {
-  let historyPaths: any = useSelector(historyPathsR);
   let userInfo: any = useSelector(userInfoR);
   let location: any = useLocation();
   const { dropScope, getCachingNodes, clear } = useAliveController();
