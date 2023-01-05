@@ -49,7 +49,7 @@ const Navbar = (props: IProps) => {
           </SubMenu>
         );
       } else if (item.type === 1) {
-        if (item.icon && ['/home', '/about'].includes(item.path)) {
+        if (item.icon && ['/home'].includes(item.path)) {
           params.icon = <IconFont type={item.icon} />;
         }
         return (

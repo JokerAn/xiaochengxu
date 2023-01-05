@@ -39,7 +39,6 @@ import { useGetUrlParams } from '@src/components/myUses';
 // import { StorageDetails } from '../serviceResourcess/cloudHost/storageDetails';
 // import { ServicesOverview } from '../topNav/servicesOverview';
 // import { baseUserInfoAPI } from '@src/apis/publicApis';
-import { AboutComponent } from '../about';
 import { RoleManagement } from '../userRoleManagement/role';
 import { UserManagement } from '../userRoleManagement/user';
 import { RoleAddBox } from '../userRoleManagement/role/roleAddBox';
@@ -57,12 +56,7 @@ import { ExamplePageDetails } from '../example/examplePageDetails';
 // import { NonPublicBoothFeeDetail } from '../resourceUse/resourcesOccupiedByDepartments/nonPublicBoothFeeDetail';
 export const JustTestPage: FC = (props: any) => {
   //方便开发环境的一个假页面
-  return (
-    <div className="pageBottomBox">
-      {props.children || '请联系管理员开通'}
-      <Input></Input>
-    </div>
-  );
+  return <div className="pageBottomBox">{props.children || '请联系管理员开通'}</div>;
 };
 const { Content } = Layout;
 const notLeftRouter: any = {
@@ -71,7 +65,6 @@ const notLeftRouter: any = {
 };
 const pathAndComponent: any = {
   // '路由单词': 组件,
-  '/about': <AboutComponent />, //首页
   '/roleManagement': <RoleManagement />, //角色管理
   '/userManagement': <UserManagement />, //用户管理
   '/roleAddBox': <RoleAddBox />, //权限管理-角色管理-新增

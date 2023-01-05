@@ -120,17 +120,6 @@ let linshi: any = [
     icon: 'icon-renyuanguanli',
   },
   {
-    id: 440,
-    pathName: '测试页面',
-    pid: 0,
-    sort: 1,
-    children: null,
-    code: 'sy3',
-    path: '/about',
-    type: 1,
-    icon: 'icon-normal_peizhi',
-  },
-  {
     id: 2,
     pathName: '系统',
     pid: 0,
