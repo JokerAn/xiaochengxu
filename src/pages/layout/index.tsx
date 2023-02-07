@@ -49,6 +49,8 @@ import { UserEditBox } from '../userRoleManagement/user/userEditBox';
 import { UserSeeBox } from '../userRoleManagement/user/userSeeBox';
 import { ExampleComponent } from '../example';
 import { ExamplePageDetails } from '../example/examplePageDetails';
+import { RrwebPlayer } from '../rrweb/player';
+import { Rrweb } from '../rrweb/rrweb';
 // import { ResourcesOccupiedByDepartmentsComponent } from '../resourceUse/resourcesOccupiedByDepartments';
 // import { ResourcesOccupancyTrendComponent } from '../resourceUse/resourcesOccupiedByDepartments/resourcesOccupancyTrend';
 // import { ExpenseDetailsComponent } from '../resourceUse/resourcesOccupiedByDepartments/expenseDetails';
@@ -75,7 +77,7 @@ const pathAndComponent: any = {
   '/userSeeBox': <UserSeeBox />, //权限管理-用户管理-查看
   '/examplePage': <ExampleComponent />, //快速示例-示例页面
   '/examplePageDetails': <ExamplePageDetails />, //快速示例-示例页面-详情
-  // '/home': <HomeComponent />, //首页
+  '/home': <RrwebPlayer />, //首页
   // '/redis': <RedisComponent />, //服务资源-redis
   // '/mySql': <MysqlComponent />, //服务资源-Mysql
   // '/domainName': <DomainNameComponent />, //服务资源-域名
@@ -349,6 +351,8 @@ export const LayOut: FC = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }} id="layoutComponent">
+      <div style={{ display: 'none' }}></div>
+      <Rrweb></Rrweb>
       <Navbar menuList={pageThat.current.ajaxRouter} />
       <div
         className={

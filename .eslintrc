@@ -119,6 +119,7 @@
     "react/no-find-dom-node": 0,
     "react/no-danger": 0,
     "no-proto": 0,
+    "new-cap": 0,
     "react/no-unstable-nested-components": 0,
     "react/prop-types": 0,
     "react/display-name": 0,

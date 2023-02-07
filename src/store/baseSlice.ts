@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 interface sliceInitialStatePros {
+  rrwebEvents: string;
   historyPaths: any[];
   zhezhaoceng0Show: boolean;
   userInfo: {
@@ -19,6 +20,7 @@ let initialStateData: sliceInitialStatePros = {
   testObj: { value: 1, menuList: [{ path: '默认' }] },
   // 左侧导航是否折叠
   leftCollapsed: (window.innerWidth || document.documentElement.clientWidth) < 992,
+  rrwebEvents: '[]',
 };
 export const slice = createSlice({
   name: 'base',
@@ -40,6 +42,10 @@ export const slice = createSlice({
     zhezhaoceng0ShowF: (state, { payload }) => {
       state.zhezhaoceng0Show = payload;
     },
+    rrwebEventsF: (state, { payload }) => {
+      // console.log(payload);
+      state.rrwebEvents = payload;
+    },
   },
 });
 // export const getCurUserDetailAPIF = (amount?: any) => (dispatch: any) => {
@@ -49,11 +55,13 @@ export const slice = createSlice({
 //   });
 // };
 
-export const { userInfoF, changeLeftCollapsed, zhezhaoceng0ShowF, historyPathsF } = slice.actions;
+export const { userInfoF, changeLeftCollapsed, zhezhaoceng0ShowF, historyPathsF, rrwebEventsF } =
+  slice.actions;
 export const userInfoR = (state: any) => state.baseReducer.userInfo;
 export const leftCollapsedR = (state: any) => {
   return state.baseReducer.leftCollapsed;
 };
 export const historyPathsR = (state: any) => state.baseReducer.historyPaths;
 export const zhezhaoceng0ShowR = (state: any) => state.baseReducer.zhezhaoceng0Show;
+export const rrwebEventsR = (state: any) => state.baseReducer.rrwebEvents;
 export default slice.reducer;

@@ -3,6 +3,9 @@ import { Button, Input } from 'antd';
 import { useAliveController } from 'react-activation';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+// path中fill="currentColor" 要把 svg标签中的 fill="xxx"去掉
+import { ReactComponent as GoogleLogo } from '@src/static/imgs/menu_icon_3.svg';
+import { ReactComponent as GoogleLogo6 } from '@src/static/imgs/menu_icon_6.svg';
 
 export const ExamplePageDetails = () => {
   let navigate: any = useNavigate();
@@ -15,6 +18,8 @@ export const ExamplePageDetails = () => {
       <h2 className="margB10" style={{ padding: '40px' }}>
         我是详情页面:id={searchObj.id}
       </h2>
+      asf <GoogleLogo style={{ color: 'blue' }} />
+      adsf
       <Button
         danger
         onClick={() => {

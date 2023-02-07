@@ -35,34 +35,6 @@ module.exports = {
       },
     },
   ],
-  // webpack: (config) => {
-  //   config.alias = {
-  //     '@src': path.resolve('src'),
-  //   };
-  //   config.output.library = `${name}-[name]`; // 开发环境正确的
-  //   // config.output.library = 'qiankun-react-ansl';// 开发环境正确的
-  //   config.output.libraryTarget = 'umd';
-  //   // config.output.jsonpFunction = `webpackJsonp_${name}`;官方文档过时了改为下边这一行
-  //   config.output.chunkLoadingGlobal = `webpackJsonp_${name}`;
-  //   config.output.globalObject = 'window';
-  //   console.log(config.plugins);
-  //   return config;
-  // },
-  // devServer: (_) => {
-  //   const config = _;
-  //   config.headers = {
-  //     'Access-Control-Allow-Origin': '*',
-  //   };
-  //   config.historyApiFallback = true;
-  //   config.hot = false;
-  //   // config.watchContentBase = false;官方文档过时了改为下边这一行
-  //   config.static.watch = false;
-  //   config.liveReload = false;
-  //   // console.log(path.resolve);
-  //   // config.static.directory = isPro ? '/' : path.resolve(__dirname, 'public');
-
-  //   return config;
-  // },
   webpack: {
     alias: {
       '@src': path.resolve('src'),
@@ -120,5 +92,12 @@ module.exports = {
       // 查看包的大小
       ...whenDev(() => [new BundleAnalyzerPlugin()], []),
     ],
+    configure: (config, { env, paths }) => {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      });
+      return config;
+    },
   },
 };
