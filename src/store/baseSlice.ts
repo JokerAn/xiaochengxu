@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 interface sliceInitialStatePros {
-  rrwebEvents: string;
+  rrwebEvents: any[];
   historyPaths: any[];
   zhezhaoceng0Show: boolean;
   userInfo: {
@@ -20,7 +20,7 @@ let initialStateData: sliceInitialStatePros = {
   testObj: { value: 1, menuList: [{ path: '默认' }] },
   // 左侧导航是否折叠
   leftCollapsed: (window.innerWidth || document.documentElement.clientWidth) < 992,
-  rrwebEvents: '[]',
+  rrwebEvents: [],
 };
 export const slice = createSlice({
   name: 'base',
@@ -44,7 +44,11 @@ export const slice = createSlice({
     },
     rrwebEventsF: (state, { payload }) => {
       // console.log(payload);
-      state.rrwebEvents = payload;
+      if (state.rrwebEvents?.length) {
+        state.rrwebEvents = [state.rrwebEvents[state.rrwebEvents?.length - 1], payload];
+      } else {
+        state.rrwebEvents = [payload];
+      }
     },
   },
 });

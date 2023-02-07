@@ -286,10 +286,6 @@ export const LayOut: FC = () => {
             });
         }
       }, 100);
-    } else {
-      setTimeout(() => {
-        clear();
-      }, 100);
     }
   }, [pathname]);
   useEffect(() => {

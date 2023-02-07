@@ -11,7 +11,13 @@ export const RrwebPlayer = () => {
   });
   const [events, eventsSet] = useState<any>([]);
   useEffect(() => {
-    eventsSet(rrwebEvents);
+    console.log(rrwebEvents.length);
+    console.log(rrwebEvents);
+    if (rrwebEvents?.length === 2) {
+      eventsSet([...rrwebEvents[0], ...rrwebEvents[1]]);
+    } else if (rrwebEvents?.length === 1) {
+      eventsSet(rrwebEvents[0]);
+    }
   }, [rrwebEvents]);
   const payerVideoBoxRef = useRef<any>(null);
 
@@ -21,7 +27,7 @@ export const RrwebPlayer = () => {
       target: payerVideoBoxRef.current, // 可以自定义 DOM 元素
       // 配置项
       props: {
-        events: JSON.parse(events),
+        events: events,
       },
     });
     pageThat.current.replayer.play();

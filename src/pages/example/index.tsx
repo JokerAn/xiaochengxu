@@ -80,7 +80,7 @@ export const ExampleComponent: FC = (props: any) => {
             type="link"
             onClick={() => {
               remarkForm.setFieldsValue({
-                id: record.checkTaskNo,
+                id: record.body.name,
                 remark: record.remark,
               });
               setRemarkPop(true);
@@ -290,8 +290,8 @@ export const ExampleComponent: FC = (props: any) => {
               md: { span: 16 },
             }}
           >
-            <Form.Item label="对账任务ID" name="id" rules={[{ required: true }]}>
-              <Input className="inputspan" disabled />
+            <Form.Item label="名称" name="id" rules={[{ required: true }]}>
+              <Input className="inputspan" />
             </Form.Item>
             <Form.Item label="备注" name="remark">
               <TextArea autoSize={{ minRows: 2, maxRows: 4 }}></TextArea>
