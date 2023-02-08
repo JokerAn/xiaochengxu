@@ -21,10 +21,9 @@ export const Rrweb = () => {
     //   body,
     // });
   };
+  //启动录制
   const startRecord = () => {
     pageThat.current.windowStop = false;
-    //record() 方法启动录制
-    //stopFn为暂停录制的方法
     let events: any = [];
     pageThat.current.rrweb = rrweb.record({
       //12秒后停止页面的录制，如果想一直录得话可以去掉。
@@ -33,11 +32,12 @@ export const Rrweb = () => {
       },
       packFn: rrweb.pack,
     });
-    message.info('开启视频录制');
+    message.info('开启视频录制;录制8秒就结束');
     setTimeout(() => {
       endRecord();
     }, 8 * 1000);
   };
+  // 暂停录制的方法
   const endRecord = (stop: any = false) => {
     if (pageThat.current.windowStop === true) {
       return;
@@ -45,13 +45,14 @@ export const Rrweb = () => {
     pageThat.current.rrweb?.();
     message.info('屏幕停止录制');
     console.log(pageThat.current.events);
-    // 用任意方式存  储 event
+    // 用任意方式存  储 event  发送个后端存数据库最佳
     dispatch(rrwebEventsF(pageThat.current.events));
     pageThat.current.events = [];
     if (!stop && !pageThat.current.windowStop) {
+      // 默认情况下 录制完成后 0.5秒后重新开始启动录制下一个8秒的视频
       setTimeout(() => {
         startRecord();
-      }, 1 * 1000);
+      }, 0.5 * 1000);
     } else {
       pageThat.current.windowStop = true;
     }
