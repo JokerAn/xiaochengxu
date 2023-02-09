@@ -1,14 +1,9 @@
 import { Form, Input, Button, Select, AutoComplete, DatePicker } from 'antd';
 import qs from 'qs';
-import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import { useState, forwardRef, useImperativeHandle, useEffect } from 'react';
 import { chinaDate } from '@src/utils';
-import moment from 'moment';
 let dates: any = chinaDate();
-const initialValues: any = {
-  dates: [moment().set('month', dates.yue - 3), moment().set('month', dates.yue - 1)],
-};
 export const TopForm: any = forwardRef((props: any, ref) => {
   const { searchBtnF, deptList } = props;
   useImperativeHandle(ref, () => ({
@@ -25,7 +20,7 @@ export const TopForm: any = forwardRef((props: any, ref) => {
     form.resetFields();
     setResetButtonDisabled(true);
     let dates: any = chinaDate();
-    form.setFieldsValue(initialValues);
+    // form.setFieldsValue(initialValues);
     console.log(form.getFieldsValue());
   };
   const onFinish = (values: any) => {
@@ -36,12 +31,9 @@ export const TopForm: any = forwardRef((props: any, ref) => {
     }
     searchBtnF(linshi);
   };
-  const onValuesChange = (currentObj: any) => {
-    setResetButtonDisabled(qs.stringify(form.getFieldsValue()) === qs.stringify(initialValues));
-  };
-  useEffect(() => {
-    form.setFieldsValue(initialValues);
-  }, []);
+  // const onValuesChange = (currentObj: any) => {
+  //   setResetButtonDisabled(qs.stringify(form.getFieldsValue()) === qs.stringify(initialValues));
+  // };
   return (
     <>
       <Form
@@ -50,18 +42,8 @@ export const TopForm: any = forwardRef((props: any, ref) => {
         layout="inline"
         name="maitainSearcher"
         onFinish={onFinish}
-        onValuesChange={onValuesChange}
+        // onValuesChange={onValuesChange}
       >
-        <Form.Item label="数据统计时间维度" name="dates">
-          <DatePicker.RangePicker
-            disabledDate={(current: any) => {
-              return current && current > moment().endOf('day');
-            }}
-            allowClear={false}
-            locale={locale}
-            picker="month"
-          />
-        </Form.Item>
         <Form.Item label="部门名称" name="departmentName">
           <Select showSearch placeholder="请选择" optionFilterProp="children">
             {deptList?.map((item: any) => (

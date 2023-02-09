@@ -2,7 +2,6 @@ import './public-path';
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Inspector, InspectParams } from 'react-dev-inspector';
-import locale from 'antd/lib/locale/zh_CN';
 import { ConfigProvider } from 'antd';
 import { unstable_HistoryRouter as BrowserRouter, useLocation } from 'react-router-dom';
 import { Provider, useDispatch } from 'react-redux';
@@ -24,7 +23,7 @@ function render(props: any) {
     store.dispatch(historyPathsF(res.location.pathname));
   });
   ReactDOM.createRoot(root).render(
-    <ConfigProvider locale={locale}>
+    <ConfigProvider>
       <InspectorWrapper
         keys={['q', 'w', 'e']}
         onClickElement={({ codeInfo }: InspectParams) => {
