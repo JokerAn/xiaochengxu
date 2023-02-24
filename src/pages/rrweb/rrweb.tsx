@@ -45,7 +45,10 @@ export const Rrweb = () => {
     pageThat.current.rrweb?.();
     message.info('屏幕停止录制');
     console.log(pageThat.current.events);
-    // 用任意方式存  储 event  发送个后端存数据库最佳
+    // 本案例为了方便演示则是将数据存到了stor中方便回放
+    // 正常情况下用户端只需录制，至于回放则是另一个项目的事情，回放数据则是我们上报的json数据
+    // 真实情况 这里是调用ajax发送给后端存数据，然后回合结束清空数据 继续重新录制
+
     dispatch(rrwebEventsF(pageThat.current.events));
     pageThat.current.events = [];
     if (!stop && !pageThat.current.windowStop) {
@@ -59,6 +62,7 @@ export const Rrweb = () => {
   };
   useEffect(() => {
     let time: number = 0;
+    // 监听前的报错
     window.addEventListener(
       'error',
       (e) => {

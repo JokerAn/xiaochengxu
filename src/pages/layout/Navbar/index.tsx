@@ -111,7 +111,7 @@ const Navbar = (props: IProps) => {
     <Sider trigger={null} collapsible collapsed={collapsed} width="256px" className="slider scroll">
       <div className="sider-menu-wrap">
         <div className={collapsed ? 'logo-wrap closed' : 'logo-wrap'}>
-          <img
+          {/* <img
             src={bigLogoImg}
             alt="公司logo"
             style={{
@@ -119,7 +119,7 @@ const Navbar = (props: IProps) => {
               height: '32px',
               display: collapsed ? 'none' : '',
             }}
-          />
+          /> */}
           <div className="change">
             {collapsed ? (
               <IconFont

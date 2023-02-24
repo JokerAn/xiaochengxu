@@ -51,6 +51,7 @@ import { ExampleComponent } from '../example';
 import { ExamplePageDetails } from '../example/examplePageDetails';
 import { RrwebPlayer } from '../rrweb/player';
 import { Rrweb } from '../rrweb/rrweb';
+import { TableInput } from '../tableInput';
 // import { ResourcesOccupiedByDepartmentsComponent } from '../resourceUse/resourcesOccupiedByDepartments';
 // import { ResourcesOccupancyTrendComponent } from '../resourceUse/resourcesOccupiedByDepartments/resourcesOccupancyTrend';
 // import { ExpenseDetailsComponent } from '../resourceUse/resourcesOccupiedByDepartments/expenseDetails';
@@ -78,6 +79,7 @@ const pathAndComponent: any = {
   '/examplePage': <ExampleComponent />, //快速示例-示例页面
   '/examplePageDetails': <ExamplePageDetails />, //快速示例-示例页面-详情
   '/home': <RrwebPlayer />, //首页
+  '/tableInput': <TableInput />, //首页
   // '/redis': <RedisComponent />, //服务资源-redis
   // '/mySql': <MysqlComponent />, //服务资源-Mysql
   // '/domainName': <DomainNameComponent />, //服务资源-域名
